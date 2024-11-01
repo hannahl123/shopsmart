@@ -1,6 +1,7 @@
 # folders
 .cache/
 .vscode/
+backend/src/js/
 bin/
 */bin/
 node_modules/

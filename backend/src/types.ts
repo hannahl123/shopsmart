@@ -18,6 +18,9 @@ export class Company {
     stores: Array<Store> = [];
 }
 
+/**
+ * Class to hold all shopping data read.
+ */
 export class ShoppingData {
     companies: Array<Company>;
     static read(): ShoppingData {

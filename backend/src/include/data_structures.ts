@@ -1,3 +1,6 @@
+/**
+ * Initializes array of n items with value v.
+ */
 export function Arr(n: number, v: any = 0): Array<any> {
     let arr: Array<any> = [];
     for (let i = 0; i < n; i++) {
@@ -5,6 +8,9 @@ export function Arr(n: number, v: any = 0): Array<any> {
     }
     return arr;
 }
+/**
+ * Initializes 2-d array of size sx by sy with value v.
+ */
 export function Arr2d(sx: number, sy: number, v: any = 0): Array<Array<any>> {
     let arr: Array<Array<any>> = [];
     for (let x = 0; x < sx; x++) {
@@ -16,12 +22,19 @@ export function Arr2d(sx: number, sy: number, v: any = 0): Array<Array<any>> {
     }
     return arr;
 }
+
+/**
+ * Swaps arr[i] and arr[j].
+ */
 export function swap(arr: Array<any>, i: number, j: number) {
     let temp = arr[i];
     arr[i] = arr[j];
     arr[j] = temp;
 }
 
+/**
+ * Max Priority Queue.
+ */
 export class PriorityQueue<T> {
     arr: Array<T> = [];
     compare: (x:T, y:T)=>0|1|-1;

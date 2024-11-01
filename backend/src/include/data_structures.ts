@@ -24,8 +24,11 @@ export function swap(arr: Array<any>, i: number, j: number) {
 
 export class PriorityQueue<T> {
     arr: Array<T> = [];
-    PriorityQueue(arr1: Array<T> = []) {
+    compare: (x:T, y:T)=>0|1|-1;
+
+    constructor(comp: (x:T, y:T)=>0|1|-1) {
         this.arr = [];
+        this.compare = comp;
     }
 
     static root(x: number) {return Math.trunc((x-1)/2);}
@@ -46,7 +49,7 @@ export class PriorityQueue<T> {
         this.arr.push(x);
         while (i > 0) {
             let i0 = PriorityQueue.root(i);
-            if (this.arr[i] > this.arr[i0]) {
+            if (this.compare(this.arr[i], this.arr[i0]) == 1) {
                 swap(this.arr, i, i0); i = i0;
             } else {
                 break;
@@ -60,13 +63,13 @@ export class PriorityQueue<T> {
         while (true) {
             let il = PriorityQueue.lnode(i);
             let ir = PriorityQueue.rnode(i);
-            if (ir < this.arr.length && this.arr[i] < this.arr[ir]) {
-                if (this.arr[il] > this.arr[ir]) {
+            if (ir < this.arr.length && this.compare(this.arr[i], this.arr[ir]) == -1) {
+                if (this.compare(this.arr[il], this.arr[ir]) == 1) {
                     swap(this.arr, i, il); i = il;
                 } else {
                     swap(this.arr, i, ir); i = ir;
                 }
-            } else if (il < this.arr.length && this.arr[i] < this.arr[il]) {
+            } else if (il < this.arr.length && this.compare(this.arr[i], this.arr[il]) == -1) {
                 swap(this.arr, i, il); i = il;
             } else {
                 break;

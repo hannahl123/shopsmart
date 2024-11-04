@@ -1,6 +1,5 @@
 {
     "name": "shopsmart",
-    "type": "module",
     "devDependencies": {
         "@types/node": "^22.8.1",
         "prettier": "^3.3.3",

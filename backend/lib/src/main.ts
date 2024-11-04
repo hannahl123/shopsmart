@@ -1,7 +1,6 @@
 import * as ds from "./include/data_structures";
 import { ShoppingData, Company, Store, Product } from "./types";
 import * as locations from "./locations";
-import { assert } from "console";
 
 // TYPES
 
@@ -83,7 +82,10 @@ function shortestPath(
     requirements: Map<string, number>,
     distanceToPrice: number,
 ) {
-    assert(stores.length < 32); // input sizes cannot exceed maximum
+    // input sizes cannot exceed maximum
+    if (stores.length >= 32) {
+        console.log("Max number of stores exceeded"); return;
+    }
 
     /**
      * Dijstra State: {time, store bitmask, requirement bitmask}

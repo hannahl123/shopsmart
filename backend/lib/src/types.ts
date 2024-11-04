@@ -10,7 +10,7 @@ export class Product {
 export class Store {
     location: string = "";
     products: Array<Product> = [];
-    productsByName: Map<string,Product> = new Map();
+    productsByName: Map<string, Product> = new Map();
 }
 
 export class Company {

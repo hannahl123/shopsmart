@@ -4,7 +4,7 @@
 export function Arr(n: number, v: any = 0): Array<any> {
     let arr: Array<any> = [];
     for (let i = 0; i < n; i++) {
-        arr.push(v)
+        arr.push(v);
     }
     return arr;
 }
@@ -37,16 +37,22 @@ export function swap(arr: Array<any>, i: number, j: number) {
  */
 export class PriorityQueue<T> {
     arr: Array<T> = [];
-    compare: (x:T, y:T)=>0|1|-1;
+    compare: (x: T, y: T) => 0 | 1 | -1;
 
-    constructor(comp: (x:T, y:T)=>0|1|-1) {
+    constructor(comp: (x: T, y: T) => 0 | 1 | -1) {
         this.arr = [];
         this.compare = comp;
     }
 
-    static root(x: number) {return Math.trunc((x-1)/2);}
-    static lnode(x: number) {return x*2+1;}
-    static rnode(x: number) {return x*2+2;}
+    static root(x: number) {
+        return Math.trunc((x - 1) / 2);
+    }
+    static lnode(x: number) {
+        return x * 2 + 1;
+    }
+    static rnode(x: number) {
+        return x * 2 + 2;
+    }
 
     size(): number {
         return this.arr.length;
@@ -63,27 +69,37 @@ export class PriorityQueue<T> {
         while (i > 0) {
             let i0 = PriorityQueue.root(i);
             if (this.compare(this.arr[i], this.arr[i0]) == 1) {
-                swap(this.arr, i, i0); i = i0;
+                swap(this.arr, i, i0);
+                i = i0;
             } else {
                 break;
             }
         }
     }
     pop() {
-        swap(this.arr, 0, this.arr.length-1);
+        swap(this.arr, 0, this.arr.length - 1);
         this.arr.pop();
         let i = 0;
         while (true) {
             let il = PriorityQueue.lnode(i);
             let ir = PriorityQueue.rnode(i);
-            if (ir < this.arr.length && this.compare(this.arr[i], this.arr[ir]) == -1) {
+            if (
+                ir < this.arr.length &&
+                this.compare(this.arr[i], this.arr[ir]) == -1
+            ) {
                 if (this.compare(this.arr[il], this.arr[ir]) == 1) {
-                    swap(this.arr, i, il); i = il;
+                    swap(this.arr, i, il);
+                    i = il;
                 } else {
-                    swap(this.arr, i, ir); i = ir;
+                    swap(this.arr, i, ir);
+                    i = ir;
                 }
-            } else if (il < this.arr.length && this.compare(this.arr[i], this.arr[il]) == -1) {
-                swap(this.arr, i, il); i = il;
+            } else if (
+                il < this.arr.length &&
+                this.compare(this.arr[i], this.arr[il]) == -1
+            ) {
+                swap(this.arr, i, il);
+                i = il;
             } else {
                 break;
             }

@@ -1,6 +1,0 @@
-{
-    "name": "shopsmart",
-    "devDependencies": {
-        "@types/node": "^22.8.7"
-    }
-}

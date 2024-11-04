@@ -22,7 +22,7 @@ export class Company {
  * Class to hold all shopping data read.
  */
 export class ShoppingData {
-    companies: Array<Company>;
+    companies: Array<Company> = [];
     static read(): ShoppingData {
         return JSON.parse(fs.readFileSync("../sample_data/data.json", "utf8"));
     }

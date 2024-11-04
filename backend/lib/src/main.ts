@@ -10,7 +10,7 @@ let data: ShoppingData = ShoppingData.read(); // all shopping data
 let stores: Array<Store> = []; // stores to be read
 let storesByName: Map<string, Store> = new Map(); // map stores by name
 let companies: Array<Company> = []; // companies to be read
-let companiesByName: Map<string, Store> = new Map(); // map companies by name
+let companiesByName: Map<string, Company> = new Map(); // map companies by name
 
 // FUNCTIONS
 
@@ -27,7 +27,7 @@ function loadData(
     for (let i = 0; i < companies.length; i++) {
         // for each company
         let company = companies[i];
-        companiesByName[company.name] = company;
+        companiesByName.set(company.name, company);
         for (let j = 0; j < company.stores.length; j++) {
             // for each store
             let store = company.stores[j];
@@ -52,7 +52,7 @@ function loadData(
                 if (flag) {
                     // contributes requirement
                     stores.push(store);
-                    storesByName[store.location] = store;
+                    storesByName.set(store.location, store);
                 }
             }
         }
@@ -96,6 +96,7 @@ function shortestPath(
         reqVis: number;
 
         constructor(t: number, x: number, y: number) {
+            this.time = t;
             this.storeVis = x;
             this.reqVis = y;
         }

@@ -20,6 +20,22 @@ MySQL
 grocery_items:
 * name: VARCHAR(30)
 
+stores:
+* id INT PRIMARY KEY
+* name VARCHAR(30)
+
+products:
+* id INT PRIMARY KEY
+* name VARCHAR(30)
+* price DECIMAL(6, 2)
+
+stores_products:
+* store_id INT
+* product_id INT
+* PRIMARY KEY (store_id, product_id)
+* FOREIGN KEY (store_id) REFERENCES stores(store_id)
+* FOREIGN KEY (product_id) REFERENCES products(product_id)
+
 shopping_list:
 * user_id: PRIMARY KEY
 * grocery_item_id: INTEGER NOT NULL

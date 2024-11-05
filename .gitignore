@@ -6,7 +6,7 @@ backend/lib/src/*/js/
 bin/
 */bin/
 node_modules/
-tsc-out/
+dist/
 
 # files
 .DS_Store

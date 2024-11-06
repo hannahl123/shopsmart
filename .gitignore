@@ -1,13 +1,15 @@
 # folders
 .cache/
 .vscode/
+backend/lib/src/js/
+backend/lib/src/*/js/
 bin/
 */bin/
 node_modules/
+dist/
 
 # files
 .DS_Store
 compile_commands.json
-package-lock.json
 
 #extensions

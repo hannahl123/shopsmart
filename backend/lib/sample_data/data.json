@@ -1,0 +1,22 @@
+{
+    "companies": [
+        {
+            "name": "",
+            "stores": [
+                {
+                    "location": "",
+                    "products": [
+                        {
+                            "name": "",
+                            "price": 1
+                        },
+                        {
+                            "name": "",
+                            "price": 1
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

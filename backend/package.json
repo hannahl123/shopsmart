@@ -1,0 +1,20 @@
+{
+    "name": "shopsmart",
+    "scripts": {
+        "start": "node dist/src/app.js",
+        "dev": "nodemon --watch src -e ts --exec ts-node src/app.ts",
+        "build": "tsc",
+        "lint": "npx prettier --write ."
+    },
+    "devDependencies": {
+        "@types/express": "^5.0.0",
+        "@types/node": "^22.8.1",
+        "nodemon": "^3.1.7",
+        "prettier": "^3.3.3",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.6.3"
+    },
+    "dependencies": {
+        "express": "^4.21.1"
+    }
+}

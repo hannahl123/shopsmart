@@ -9,8 +9,8 @@ export default function Index() {
     <View
       style={styles.view}
     >
-      <Text style={styles.title}>DOORSENSE</Text>
-      <Text style={styles.header}>LIVE</Text>
+      <Text style={styles.title}>SHOPSMART</Text>
+      <Text style={styles.header}>SHOPPING LIST</Text>
 
     </View>
   );

@@ -20,7 +20,7 @@ export const useStyles = () => {
         }, 
         header: {
             fontSize: 18, 
-            fontWeight: 'bold', 
+            fontWeight: 'semibold', 
             color: Colors.light.text, 
             marginBottom: '1%', 
             alignSelf: 'flex-start',

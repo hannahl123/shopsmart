@@ -1,15 +1,17 @@
+import React from 'react';
 import { Text, View } from "react-native";
+import { useStyles } from "@/constants/useStyles";
 
 export default function Index() {
+  const styles = useStyles();
+
   return (
     <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
+      style={styles.view}
     >
-      <Text>哈喽姐姐 好爱你哦</Text>
+      <Text style={styles.title}>DOORSENSE</Text>
+      <Text style={styles.header}>LIVE</Text>
+
     </View>
   );
 }

@@ -7,8 +7,8 @@ export const useStyles = () => {
     return StyleSheet.create({
         view : {
             flex: 1,
-            justifyContent: "center",
-            alignItems: "center",
+            //justifyContent: "center",
+            //alignItems: "center",
             backgroundColor: '#fff',
             padding: '10%', 
         }, 
@@ -16,14 +16,15 @@ export const useStyles = () => {
             fontSize: 30,
             fontWeight: 'bold', 
             color: Colors.light.text, 
-            marginBottom: '10%', 
+            position: 'absolute', 
+            top: '8%',
+            left: '8%',
         }, 
         header: {
             fontSize: 18, 
             fontWeight: 'semibold', 
             color: Colors.light.text, 
-            marginBottom: '1%', 
-            alignSelf: 'flex-start',
+            textAlign: 'center', 
         }, 
         video: {
             width: '100%', 

@@ -49,6 +49,48 @@ export const useStyles = () => {
             color: Colors.light.text,
             marginTop: -4,
             fontSize: 24, 
-        }
+        },
+        container: {
+            borderWidth: 1,
+            borderColor: '#56B4D3',
+            borderRadius: 8,
+            padding: 10,
+            margin: 10,
+        },
+        headerRow: {
+            flexDirection: 'row',
+            borderBottomWidth: 1,
+            borderBottomColor: '#56B4D3',
+            paddingBottom: 5,
+            marginBottom: 5,
+        },
+        headerText: {
+            flex: 1,
+            fontWeight: 'bold',
+            color: '#56B4D3',
+            fontSize: 12,
+        },
+        row: {
+            flexDirection: 'row',
+            alignItems: 'center',
+            paddingVertical: 8,
+        },
+        cell: {
+            flex: 1,
+            color: '#3B73A2',
+        },
+        deleteButton: {
+            width: 24,
+            height: 24,
+            borderRadius: 12,
+            borderWidth: 1,
+            borderColor: '#56B4D3',
+            alignItems: 'center',
+            justifyContent: 'center',
+        },
+        deleteText: {
+            color: '#3B73A2',
+            fontSize: 16,
+        },
     })
 }

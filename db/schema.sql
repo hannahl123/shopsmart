@@ -1,48 +1,42 @@
 -- Grocery store company
-CREATE TABLE franchise (
+CREATE TABLE companies (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(30) NOT NULL,
     logo TEXT -- URL to the logo of the franchise
 );
-
 -- Individual stores of a franchise
 CREATE TABLE stores (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    franchise_id INT NOT NULL,
+    company_id INT NOT NULL,
     latitude FLOAT NOT NULL,
     longitude FLOAT NOT NULL,
-    FOREIGN KEY (franchise_id) REFERENCES franchise(id) ON DELETE CASCADE
+    FOREIGN KEY (company_id) REFERENCES companies(id) ON DELETE CASCADE
 );
-
--- Product catalog table remains the same
-CREATE TABLE product_catalog (
+-- All possible products that stores can sell and users can add to shopping list
+CREATE TABLE products (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(30) NOT NULL,
+    name VARCHAR(100) NOT NULL,
     image TEXT -- URL to the product's image
 );
-
--- Products table references both stores and product_catalog
-CREATE TABLE products (
+-- All the items (products) that a store sells
+CREATE TABLE store_items (
     store_id INT NOT NULL,
-    product_catalog_id INT NOT NULL,
+    product_id INT NOT NULL,
     price FLOAT NOT NULL,
-    PRIMARY KEY (store_id, product_catalog_id),
+    PRIMARY KEY (store_id, product_id),
     FOREIGN KEY (store_id) REFERENCES stores(id) ON DELETE CASCADE,
-    FOREIGN KEY (product_catalog_id) REFERENCES product_catalog(id) ON DELETE CASCADE
+    FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
 );
-
--- Shopping list table remains the same structure
-CREATE TABLE shopping_list (
-    user_id INT NOT NULL,
-    grocery_item_id INT NOT NULL,
-    PRIMARY KEY (user_id, grocery_item_id),
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
-    FOREIGN KEY (grocery_item_id) REFERENCES product_catalog(id) ON DELETE CASCADE
-);
-
--- Users table remains the same structure
 CREATE TABLE users (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    shopping_list_id INT NOT NULL,
-    FOREIGN KEY (shopping_list_id) REFERENCES shopping_list(user_id) ON DELETE SET NULL
+    username VARCHAR(30) NOT NULL,
+    pfp TEXT
+);
+-- Shopping items of users
+CREATE TABLE shopping_items (
+    user_id INT NOT NULL,
+    product_id INT NOT NULL,
+    PRIMARY KEY (user_id, product_id),
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
 );

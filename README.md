@@ -17,46 +17,54 @@ We can use Python for web scraping.
 
 ## **Database**
 
-MySQL
+We will use MySQL.
 
 **Database schema:**
 
-grocery_items (grocery items within a store):
+### `stores`:
 
--   name: VARCHAR(30)
+```
+* id INT PRIMARY KEY
+* name VARCHAR(30)
+* logo TEXT // URL to the logo of the store
+* latitude FLOAT
+* longitude FLOAT
+```
 
-stores:
+### `product_catalog`:
 
--   id INT PRIMARY KEY
--   name VARCHAR(30)
--   logo TEXT // URL to the logo of the store
--   latitude FLOAT
--   longitude FLOAT
+The list of **all possible items** that a grocery store can sell.
 
-products:
+```
+* id INT PRIMARY KEY
+* name VARCHAR(30)
+* image TEXT // URL to the product's image
+```
 
--   id INT PRIMARY KEY
--   name VARCHAR(30)
--   price DECIMAL(6, 2)
--   image TEXT // URL to the product's image
+### `products`:
 
-stores_products (used for many-to-many relationship between stores and products tables):
+The items that stores are **actively selling.** Each item must be an item from `product_catalog`.
 
--   store_id INT
--   product_id INT
--   PRIMARY KEY (store_id, product_id)
--   FOREIGN KEY (store_id) REFERENCES stores(store_id)
--   FOREIGN KEY (product_id) REFERENCES products(product_id)
+```
+* store_id INT NOT NULL
+* product_catalog_id INT NOT NULL
+* PRIMARY KEY (store_id, product_catalog_id)
+* price FLOAT NOT NULL
+```
 
-shopping_list:
+### `shopping_list`:
 
--   user_id: PRIMARY KEY
--   grocery_item_id: INTEGER NOT NULL
+```
+* user_id: PRIMARY KEY
+* grocery_item_id: INTEGER NOT NULL
+```
 
-users:
+### `users`:
 
--   id INTEGER PRIMARY KEY
--   shopping_list_id: INTEGER
+```
+* id INTEGER PRIMARY KEY
+* shopping_list_id: INTEGER
+```
 
 ## **Hosting**
 

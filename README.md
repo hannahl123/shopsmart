@@ -40,7 +40,7 @@ products:
 -   price DECIMAL(6, 2)
 -   image TEXT // URL to the product's image
 
-stores_products:
+stores_products (used for many-to-many relationship between stores and products tables):
 
 -   store_id INT
 -   product_id INT

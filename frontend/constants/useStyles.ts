@@ -70,27 +70,28 @@ export const useStyles = () => {
             color: '#56B4D3',
             fontSize: 12,
         },
-        row: {
+        line: {
             flexDirection: 'row',
             alignItems: 'center',
-            paddingVertical: 8,
-        },
-        cell: {
-            flex: 1,
-            color: '#3B73A2',
-        },
-        deleteButton: {
-            width: 24,
-            height: 24,
-            borderRadius: 12,
-            borderWidth: 1,
-            borderColor: '#56B4D3',
-            alignItems: 'center',
             justifyContent: 'center',
+            marginVertical: 10,
         },
-        deleteText: {
-            color: '#3B73A2',
+        label: {
             fontSize: 16,
+            color: '#0077B6',
+            marginRight: 10,
+        },
+        button: {
+            borderWidth: 1,
+            borderColor: '#0077B6',
+            borderRadius: 8,
+            paddingVertical: 5,
+            paddingHorizontal: 15,
+            marginHorizontal: 5,
+        },
+        buttonText: {
+            fontSize: 16,
+            color: '#0077B6',
         },
     })
 }

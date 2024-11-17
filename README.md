@@ -17,54 +17,11 @@ We can use Python for web scraping.
 
 ## **Database**
 
-We will use MySQL.
+We will use MariaDB.
 
-**Database schema:**
+### Database schema
 
-### `stores`:
-
-```
-* id INT PRIMARY KEY
-* name VARCHAR(30)
-* logo TEXT // URL to the logo of the store
-* latitude FLOAT
-* longitude FLOAT
-```
-
-### `product_catalog`:
-
-The list of **all possible items** that a grocery store can sell.
-
-```
-* id INT PRIMARY KEY
-* name VARCHAR(30)
-* image TEXT // URL to the product's image
-```
-
-### `products`:
-
-The items that stores are **actively selling.** Each item must be an item from `product_catalog`.
-
-```
-* store_id INT NOT NULL
-* product_catalog_id INT NOT NULL
-* PRIMARY KEY (store_id, product_catalog_id)
-* price FLOAT NOT NULL
-```
-
-### `shopping_list`:
-
-```
-* user_id: PRIMARY KEY
-* grocery_item_id: INTEGER NOT NULL
-```
-
-### `users`:
-
-```
-* id INTEGER PRIMARY KEY
-* shopping_list_id: INTEGER
-```
+See `db/schema.sql`.
 
 ## **Hosting**
 

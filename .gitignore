@@ -11,5 +11,6 @@ dist/
 # files
 .DS_Store
 compile_commands.json
+.env
 
 #extensions

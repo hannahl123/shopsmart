@@ -2,7 +2,7 @@
 CREATE TABLE companies (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(30) NOT NULL,
-    logo TEXT -- URL to the logo of the franchise
+    logo TEXT NOT NULL -- URL to the logo of the franchise
 );
 -- Individual stores of a franchise
 CREATE TABLE stores (
@@ -16,7 +16,7 @@ CREATE TABLE stores (
 CREATE TABLE products (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL,
-    image TEXT -- URL to the product's image
+    image TEXT NOT NULL -- URL to the product's image
 );
 -- All the items (products) that a store sells.
 -- Each company can have their own versions of products.
@@ -31,7 +31,7 @@ CREATE TABLE company_items (
 CREATE TABLE users (
     id INT PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(30) NOT NULL,
-    pfp TEXT
+    pfp TEXT NOT NULL
 );
 -- Shopping items of users
 CREATE TABLE shopping_items (

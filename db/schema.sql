@@ -20,11 +20,10 @@ CREATE TABLE products (
 );
 -- All the items (products) that a store sells
 CREATE TABLE store_items (
-    store_id INT NOT NULL,
+    company_id INT PRIMARY KEY NOT NULL,
     product_id INT NOT NULL,
     price FLOAT NOT NULL,
-    PRIMARY KEY (store_id, product_id),
-    FOREIGN KEY (store_id) REFERENCES stores(id) ON DELETE CASCADE,
+    FOREIGN KEY (company_id) REFERENCES companies(id) ON DELETE CASCADE,
     FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
 );
 CREATE TABLE users (

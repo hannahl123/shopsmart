@@ -18,10 +18,12 @@ CREATE TABLE products (
     name VARCHAR(100) NOT NULL,
     image TEXT -- URL to the product's image
 );
--- All the items (products) that a store sells
-CREATE TABLE store_items (
+-- All the items (products) that a store sells.
+-- Each company can have their own versions of products.
+CREATE TABLE company_items (
     company_id INT PRIMARY KEY NOT NULL,
     product_id INT NOT NULL,
+    name VARCHAR(100) NOT NULL,
     price FLOAT NOT NULL,
     FOREIGN KEY (company_id) REFERENCES companies(id) ON DELETE CASCADE,
     FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE

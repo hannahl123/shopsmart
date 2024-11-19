@@ -38,6 +38,16 @@ app.get("/api/matching-items/:userId/:companyId", async (req, res) => {
     res.send(items);
 });
 
+app.post("/api/add-item/:userId/:productId", async (req, res) => {
+    const userId = req.params.userId;
+    const productId = req.params.productId;
+    res.send(
+        await query(
+            `INSERT INTO shopping_items (user_id, product_id) VALUES (${userId}, ${productId})`,
+        ),
+    );
+});
+
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });

@@ -24,7 +24,7 @@ app.get("/api/company-items/:companyId", async (req, res) => {
     res.send(items);
 });
 
-app.get("/api/matching-items/:companyId/:userId", async (req, res) => {
+app.get("/api/matching-items/:userId/:companyId", async (req, res) => {
     const companyId = req.params.companyId;
     const userId = req.params.userId;
     const items = await query(`

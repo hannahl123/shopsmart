@@ -65,6 +65,22 @@ app.post("/api/remove-item/:userId/:productId", async (req, res) => {
     );
 });
 
+// return the cheapest item for each shopping list item
+app.get("/api/shopping-items/:userId", async (req, res) => {
+    const userId = req.params.userId;
+    const items = await query(`
+        SELECT
+            name,
+            MIN(price) as price
+        FROM shopping_items
+        INNER JOIN company_items
+            ON shopping_items.product_id = company_items.product_id
+        WHERE user_id = ${userId}
+        GROUP BY product_id;
+    `);
+    res.send(items);
+});
+
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });

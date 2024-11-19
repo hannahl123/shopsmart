@@ -24,6 +24,20 @@ app.get("/api/company-items/:companyId", async (req, res) => {
     res.send(items);
 });
 
+app.get("/api/matching-items/:companyId/:userId", async (req, res) => {
+    const companyId = req.params.companyId;
+    const userId = req.params.userId;
+    const items = await query(`
+        SELECT name, company_items.price
+        FROM company_items
+        INNER JOIN shopping_items
+            ON user_id = ${userId}
+            AND shopping_items.product_id = company_items.product_id
+            AND company_id = ${companyId};
+    `);
+    res.send(items);
+});
+
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });

@@ -48,6 +48,16 @@ app.post("/api/add-item/:userId/:productId", async (req, res) => {
     );
 });
 
+app.post("/api/remove-item/:userId/:productId", async (req, res) => {
+    const userId = req.params.userId;
+    const productId = req.params.productId;
+    res.send(
+        await query(
+            `DELETE FROM shopping_items WHERE user_id = ${userId} AND product_id = ${productId}`,
+        ),
+    );
+});
+
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });

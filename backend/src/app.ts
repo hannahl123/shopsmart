@@ -41,11 +41,18 @@ app.get("/api/matching-items/:userId/:companyId", async (req, res) => {
 app.post("/api/add-item/:userId/:productId", async (req, res) => {
     const userId = req.params.userId;
     const productId = req.params.productId;
-    res.send(
-        await query(
-            `INSERT INTO shopping_items (user_id, product_id) VALUES (${userId}, ${productId})`,
-        ),
-    );
+
+    const sellerCompanies = await query(`
+        SELECT * FROM company_items WHERE product_id = ${productId};
+    `);
+    if (sellerCompanies.length == 0)
+        res.json({ message: "The product is not sold by any companies." });
+    else
+        res.send(
+            await query(
+                `INSERT INTO shopping_items (user_id, product_id) VALUES (${userId}, ${productId})`,
+            ),
+        );
 });
 
 app.post("/api/remove-item/:userId/:productId", async (req, res) => {

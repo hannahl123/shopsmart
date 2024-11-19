@@ -25,6 +25,7 @@ export const useStyles = () => {
             fontWeight: 'semibold', 
             color: Colors.light.text, 
             textAlign: 'center', 
+            marginTop: '30%',
         }, 
         video: {
             width: '100%', 
@@ -89,9 +90,24 @@ export const useStyles = () => {
             paddingHorizontal: 15,
             marginHorizontal: 5,
         },
+        accountButton: {
+            borderWidth: 1, 
+            borderColor: Colors.light.text, 
+            borderRadius: 8, 
+            paddingVertical: '5%', 
+            marginVertical: '5%', 
+        }, 
         buttonText: {
             fontSize: 16,
             color: '#0077B6',
         },
+        input: {
+            borderWidth: 1, 
+            borderColor: Colors.light.text,
+            borderRadius: 8, 
+            width: '35%',
+            alignSelf: 'flex-end',
+            padding: 5,
+        }
     })
 }

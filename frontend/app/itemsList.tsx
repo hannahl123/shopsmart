@@ -33,8 +33,23 @@ export default function ItemsList() {
                 />
             </View>
 
-            <View style={{width: '95%', borderColor: Colors.light.text, borderWidth: 1, height: '40%', marginTop: '5%', borderRadius: 8, marginHorizontal: 'auto'}}>
+            <View style={[styles.container, {padding: 10,
+                margin: 10, marginTop: '5%'}]}>
+              <View style={styles.headerRow}>
+                <Text style={styles.headerText}>Image</Text>
+                <Text style={styles.headerText}>Item</Text>
+                <Text style={styles.headerText}>Date Added</Text>
+                <Text style={styles.headerText}>Select</Text>
+              </View>
+            </View>
 
+            <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+            <TouchableOpacity style={styles.button}>
+              <Text style={styles.buttonText}>Remove Selected</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.button}>
+              <Text style={styles.buttonText}>Clear All</Text>
+            </TouchableOpacity>
             </View>
         </View>
     )

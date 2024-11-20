@@ -7,8 +7,6 @@ export const useStyles = () => {
     return StyleSheet.create({
         view : {
             flex: 1,
-            //justifyContent: "center",
-            //alignItems: "center",
             backgroundColor: '#fff',
             padding: '10%', 
         }, 
@@ -18,7 +16,7 @@ export const useStyles = () => {
             color: Colors.light.text, 
             position: 'absolute', 
             top: '8%',
-            left: '8%',
+            left: '13%',
         }, 
         header: {
             fontSize: 18, 
@@ -61,7 +59,7 @@ export const useStyles = () => {
         headerRow: {
             flexDirection: 'row',
             borderBottomWidth: 1,
-            borderBottomColor: '#56B4D3',
+            borderBottomColor: Colors.light.background,
             paddingBottom: 5,
             marginBottom: 5,
         },
@@ -112,7 +110,7 @@ export const useStyles = () => {
         dropdown: {
             borderColor: Colors.light.text,
             color: Colors.light.text,
-            width: '70%',
+            width: '72%',
             marginLeft: '5%',
             marginTop: '5%',
             padding: '2%',
@@ -123,6 +121,50 @@ export const useStyles = () => {
             borderColor: Colors.light.text,
             marginLeft: '5%',
             marginTop: '5%',
+        }, 
+        cell: {
+            flex: 1,
+            paddingTop: '3%', 
+            paddingHorizontal: '1%', 
+            textAlign: 'left',
+            color: Colors.light.text,
+        }, 
+        selectButton: {
+            color: Colors.light.text, 
+            paddingVertical: '2%',
+            paddingHorizontal: '2%',
+            borderRadius: 10,
+        }, 
+        selectButtonText: {
+            color: Colors.light.text,
+        },
+        row: {
+            flexDirection: 'row',
+            justifyContent: 'flex-start',
+            paddingVertical: 10,
+            borderBottomWidth: 1,
+            borderBottomColor: Colors.light.background, 
+        }, 
+        searchButton: {
+            fontSize: 20, 
+            color: Colors.light.text, 
+            textAlign: 'right', 
+            paddingHorizontal: '2%',
+        }, 
+        searchBar: {
+            borderWidth: 1, 
+            borderColor: Colors.light.text, 
+            borderRadius: 8, 
+            padding: '2.5%', 
+            paddingLeft: '4%', 
+            height: '6%', 
+            marginVertical: '10%', 
+            flexDirection: 'row', 
+            justifyContent: 'space-between', 
+
+        }, 
+        searchInput: {
+            color: Colors.light.text, 
         }
     })
 }

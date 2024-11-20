@@ -1,8 +1,9 @@
 import { useStyles } from '@/constants/useStyles';
 import React, {useState} from 'react';
-import {View, Text, useColorScheme, TouchableOpacity } from 'react-native';
+import {View, Text, useColorScheme, TouchableOpacity, ScrollView } from 'react-native';
 import { Colors } from '@/constants/Colors';
 import DropDownPicker from 'react-native-dropdown-picker';
+import { MaterialIcons } from "@expo/vector-icons";
 
 export default function ItemsList() {
     const styles = useStyles();
@@ -14,6 +15,14 @@ export default function ItemsList() {
         { label: 'Alphabetical (Ascending)', value: 'alpha1' },
         { label: 'Alphabetical (Descending)', value: 'alpha2' },
     ]);
+
+    const tableData = [
+        {item: 'Apples', date: '2024-11-19', select: 'Select' },
+        {item: 'Oranges', date: '2024-11-18', select: 'Select' },
+        {item: 'Avocados', date: '2024-11-17', select: 'Select' },
+        {item: 'Bananas', date: '2024-11-16', select: 'Select' },
+        {item: 'Butter', date: '2024-11-16', select: 'Select' },
+    ];
 
     return (
         <View style={styles.view}>
@@ -34,13 +43,24 @@ export default function ItemsList() {
             </View>
 
             <View style={[styles.container, {padding: 10,
-                margin: 10, marginTop: '5%'}]}>
+                marginHorizontal: 0, marginTop: '5%', marginBottom: '5%', height: '50%'}]}>
               <View style={styles.headerRow}>
-                <Text style={styles.headerText}>Image</Text>
                 <Text style={styles.headerText}>Item</Text>
-                <Text style={styles.headerText}>Date Added</Text>
-                <Text style={styles.headerText}>Select</Text>
+                <Text style={[styles.headerText, {marginLeft: '-10%'}]}>Date Added</Text>
+                <Text style={[styles.headerText, {marginRight: '-22%'}]}>Select</Text>
               </View>
+
+              <ScrollView style={{maxHeight: '100%'}}>
+                {tableData.map((row, index) => (
+                    <View key={index} style={styles.row}>
+                        <Text style={styles.cell}>{row.item}</Text>
+                        <Text style={[styles.cell, {marginLeft: '-10%'}]}>{row.date}</Text>
+                        <TouchableOpacity style={[styles.selectButton, {marginRight: '7%'}]}>
+                            <MaterialIcons name="check-box" size={24} color={Colors.light.background} />
+                        </TouchableOpacity>
+                    </View>
+                ))}
+                </ScrollView>
             </View>
 
             <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>

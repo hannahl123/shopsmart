@@ -8,7 +8,12 @@ export default function Trip() {
     <View
       style={styles.view}
     >
-      <Text style={styles.title}>ShopSmart</Text>
+      <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+        <Text style={[styles.title, {position: 'relative', left: 0}]}>ShopSmart</Text>
+        <TouchableOpacity style={[styles.button]}>
+          <Text style={[styles.buttonText, {marginTop: '5%'}]}>Add Item</Text>
+        </TouchableOpacity>
+      </View>
       <Text style={styles.header}>
         Path for Your Grocery Trip</Text>
       <View style={[styles.container,{marginTop: '10%', marginHorizontal: '0%', height: '40%'}]}></View>

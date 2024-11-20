@@ -195,3 +195,816 @@ VALUES (
         'Water',
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYuYjAb6gSohmcPVx4FwM2AAYCP3dxchBigg&s'
     );
+INSERT INTO company_items (company_id, product_id, name, price)
+VALUES (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'No Frills'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Banana'
+        ),
+        'Bananas, Bunch',
+        1.49
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'No Frills'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Avocado'
+        ),
+        'Avocados Bag, 5-Pack',
+        1.94
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'No Frills'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Ginger'
+        ),
+        'Ginger',
+        1.38
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'No Frills'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Cucumber'
+        ),
+        'Cucumber',
+        1.49
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'No Frills'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Lettuce'
+        ),
+        'Lettuce Iceberg',
+        2.99
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'No Frills'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Cauliflower'
+        ),
+        'Cauliflower',
+        4.99
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'No Frills'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Broccoli'
+        ),
+        'Broccoli',
+        1.99
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'No Frills'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Banana'
+        ),
+        'Plantains, Single',
+        1.01
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'No Frills'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Eggplant'
+        ),
+        'Purple Eggplants',
+        3.76
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'No Frills'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Eggplant'
+        ),
+        'Long Eggplants',
+        1.26
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'No Frills'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Mango'
+        ),
+        'Ataulfo Mango',
+        1.49
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'No Frills'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Mango'
+        ),
+        'Mango',
+        0.99
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'No Frills'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Banana'
+        ),
+        'Organic Bananas, Bunch',
+        2.40
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'Freshco'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Broccoli'
+        ),
+        'Broccoli 1 unit',
+        2.49
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'Freshco'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Avocado'
+        ),
+        'Avocados Bag',
+        3.99
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'Freshco'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Nutella'
+        ),
+        'Nutella',
+        9.99
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'Freshco'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Grapes'
+        ),
+        'Red Seedless Grapes 1 kg',
+        7.69
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'Freshco'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Cookies'
+        ),
+        'Dare Ultimate Cookies 290-300 g',
+        2.49
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'Freshco'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Cookies'
+        ),
+        'Leclerc Celebration Cookies 240-350 g',
+        2.99
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'Freshco'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Cookies'
+        ),
+        'Christie Family Cookies or Crackers 345-520 g',
+        4.29
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'Freshco'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Ice Cream'
+        ),
+        'Haagen-Dazs Ice Cream',
+        8.88
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'Freshco'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Ice Cream'
+        ),
+        'Nestle Parlour Frozen Dessert 1.5 L',
+        3.44
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'Freshco'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Ice Cream'
+        ),
+        'Novvelties 12 pk reg 4.99',
+        3.44
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'Food Basics'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Broccoli'
+        ),
+        'Wrapped Broccoli Crown',
+        1.98
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'Food Basics'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Broccoli'
+        ),
+        'Frozen Broccoli Florets 500 g',
+        2.57
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'Food Basics'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Avocado'
+        ),
+        'Avocados Pack',
+        3.98
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'Food Basics'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Avocado'
+        ),
+        'Avocado 1 unit',
+        1.98
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'Food Basics'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Milk'
+        ),
+        '2% Milk PurFiltre 2 L',
+        5.64
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'Food Basics'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Milk'
+        ),
+        '1% Chocolate Milk 2 L',
+        5.19
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'Food Basics'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Milk'
+        ),
+        '1% Chocolate Milk 6x237 mL',
+        5.99
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'T&T'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Banana'
+        ),
+        'Bananas',
+        1.5
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'T&T'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Avocado'
+        ),
+        'Avocados Pack',
+        2.77
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'T&T'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Cauliflower'
+        ),
+        'Cauliflower',
+        3.99
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'T&T'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Cucumber'
+        ),
+        'English Cucumber',
+        1.38
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'T&T'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Orange'
+        ),
+        'Jelly Orange (3lbs)',
+        8.85
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'T&T'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Orange'
+        ),
+        'Honey Mandarin',
+        7.52
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'T&T'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Banana'
+        ),
+        'Fresh Banana (~3lbs)',
+        2.31
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'T&T'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Avocado'
+        ),
+        'Large Avocado (1pc)',
+        2.99
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'T&T'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Orange'
+        ),
+        'Navel Oranges (4lbs)',
+        6.72
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'T&T'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Orange'
+        ),
+        'Sunkist Oranges (4lbs)',
+        8.00
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'Walmart'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Banana'
+        ),
+        'Bananas',
+        0.70
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'Walmart'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Avocado'
+        ),
+        'Avocados Bag',
+        0.87
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'Walmart'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Ginger'
+        ),
+        'Ginger',
+        0.98
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'Walmart'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Cucumber'
+        ),
+        'Cucumber',
+        0.67
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'Walmart'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Lettuce'
+        ),
+        'Lettuce Iceberg',
+        0.97
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'Walmart'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Broccoli'
+        ),
+        'Broccoli',
+        0.47
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'Walmart'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Banana'
+        ),
+        'Banana, Sold in singles, 0.15-0.23 kg',
+        0.30
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'Walmart'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Avocado'
+        ),
+        'Avocado, Pack of 5',
+        5.87
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'Walmart'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Orange'
+        ),
+        'Orango, Seedless, Sold in singles, 0.25-0.28 kg',
+        0.46
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'Walmart'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Avocado'
+        ),
+        'Your Fresh Market Organic Avocados, Pack of 4',
+        5.97
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'Walmart'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Banana'
+        ),
+        'Bananas',
+        1.70
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'Walmart'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Avocado'
+        ),
+        'Avocados Bag',
+        5.87
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'Walmart'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Ginger'
+        ),
+        'Ginger',
+        0.98
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'Walmart'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Cucumber'
+        ),
+        'Cucumber',
+        1.67
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'Walmart'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Lettuce'
+        ),
+        'Lettuce Iceberg',
+        2.97
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'Walmart'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Broccoli'
+        ),
+        'Broccoli',
+        3.47
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'Walmart'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Mlik'
+        ),
+        'fairlife 2% Ultrafiltered Milk 1.5L Bottle, 1.5 x L',
+        5.98
+    ),
+    (
+        (
+            SELECT id
+            FROM companies
+            WHERE name = 'Walmart'
+        ),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'Mlik'
+        ),
+        'Sealtest Partly Skimmed 2% Milk',
+        6.08
+    );

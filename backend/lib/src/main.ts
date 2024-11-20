@@ -63,10 +63,12 @@ function loadData(
  * Constructs the graph given data created by loadData().
  */
 function constructGraph(): Array<Array<number>> {
-    let graph: Array<Array<number>> = ds.Arr2d(stores.length, stores.length);
-    for (let i = 0; i < stores.length; i++) {
+    let ns = stores.length;
+    let graph: Array<Array<number>> = ds.Arr2d(ns+1, ns+1);
+    for (let i = 0; i < ns; i++) {
         graph[i][i] = 0;
-        for (let j = i + 1; j < stores.length; j++) {
+        graph[ns][i] = graph[i][ns] = locations.distance(stores[i].location, "HOME");
+        for (let j = i + 1; j < ns; j++) {
             let q = locations.distance(stores[i].location, stores[j].location);
             graph[i][j] = q;
             graph[j][i] = q;
@@ -78,13 +80,29 @@ function constructGraph(): Array<Array<number>> {
 /**
  * Shortest path.
  */
-function shortestPath(
+function shortestPath_dijkstra(
+    graph: Array<Array<number>>,
     requirements: Map<string, number>,
     distanceToPrice: number,
 ) {
     // input sizes cannot exceed maximum
-    if (stores.length >= 32) {
-        console.log("Max number of stores exceeded"); return;
+    let ns = stores.length;
+    let nr = requirements.size;
+    if (ns+nr >= 32) {
+        console.log("Max number of stores + requirements exceeded"); return;
+    }
+    console.log("ns: "+ns+", nr: "+nr);
+
+    let priceAtStore = ds.Arr2d(ns, nr, 0);
+    for (let si = 0; si < ns; si++) {
+        let store = stores[si];
+        let ri = 0;
+        for (let [req, quant] of Array.from(requirements.entries())) {
+            let prod = store.productsByName.get(req);
+            if (prod) {priceAtStore[si][ri] = prod.price*quant;}
+            else {priceAtStore[si][ri] = Infinity;}
+            ri++;
+        }
     }
 
     /**
@@ -94,11 +112,13 @@ function shortestPath(
         time: number;
         storeVis: number;
         reqVis: number;
+        at: number = -1;
 
-        constructor(t: number, x: number, y: number) {
+        constructor(t: number, at1: number, x: number, y: number) {
             this.time = t;
             this.storeVis = x;
             this.reqVis = y;
+            this.at = at1;
         }
 
         static compare(x: DijkstraState, y: DijkstraState) {
@@ -112,10 +132,45 @@ function shortestPath(
         }
     }
 
+    const HOME = ns;
+    let dist: Array<Array<Array<number>>> = ds.Arr3d(ns, 1<<ns, 1<<nr, Infinity);
+    let path: Array<Array<Array<number>>> = ds.Arr3d(ns, 1<<ns, 1<<nr, Infinity);
     let pq = new ds.PriorityQueue<DijkstraState>(DijkstraState.compare);
-    pq.push(new DijkstraState(0, 0, 0));
+    pq.push(new DijkstraState(0, HOME, 0, 0));
     while (!pq.empty()) {
         let curr = pq.top();
+        if (dist[curr.at][curr.storeVis][curr.reqVis] != Infinity) {
+            continue;
+        }
+        dist[curr.at][curr.storeVis][curr.reqVis] = -curr.time;
+        if (curr.reqVis == (1<<nr)-1) {
+            if (curr.at == HOME) {break;}
+            else {
+                pq.push(new DijkstraState(
+                    curr.time - graph[curr.at][HOME]*distanceToPrice,
+                    HOME,
+                    curr.storeVis,
+                    curr.reqVis
+                ));
+            }
+        }
+        for (let next = 0; next < ns; next++) {
+            pq.push(new DijkstraState(
+                curr.time - graph[curr.at][next]*distanceToPrice,
+                next,
+                curr.storeVis | (1<<next),
+                curr.reqVis
+            ));
+        }
+        for (let buy = 0; buy < nr; buy++) {
+            pq.push(new DijkstraState(
+                curr.time - priceAtStore[curr.at][buy],
+                curr.at,
+                curr.storeVis,
+                curr.reqVis | (1<<buy)
+            ));
+        }
+        pq.pop();
     }
 }
 
@@ -126,6 +181,6 @@ function dataMain() {
     let req = new Map();
     req.set("a", 1);
     loadData("", 1, req);
-    shortestPath(req, 0);
+    // shortestPath_dijkstra(undefined, req, 0);
 }
 dataMain();

@@ -23,6 +23,14 @@ export function Arr2d(sx: number, sy: number, v: any = 0): Array<Array<any>> {
     return arr;
 }
 
+export function Arr3d(sx: number, sy: number, sz: number, v: any = 0): Array<Array<Array<any>>> {
+    let arr: Array<Array<Array<any>>> = [];
+    for (let x = 0; x < sx; x++) {
+        arr.push(Arr2d(sy, sz, v));
+    }
+    return arr;
+}
+
 /**
  * Swaps arr[i] and arr[j].
  */

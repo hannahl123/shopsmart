@@ -21,7 +21,8 @@ CREATE TABLE products (
 -- All the items (products) that a store sells.
 -- Each company can have their own versions of products.
 CREATE TABLE company_items (
-    company_id INT PRIMARY KEY NOT NULL,
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    company_id INT NOT NULL,
     product_id INT NOT NULL,
     name VARCHAR(100) NOT NULL,
     price FLOAT NOT NULL,

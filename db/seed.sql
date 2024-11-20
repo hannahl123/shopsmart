@@ -41,7 +41,7 @@ VALUES (
     ),
     (
         "Eggplant",
-        "https://www.veggycation.com.au/siteassets/veggycationvegetable/eggplant.jpg",
+        "https://www.veggycation.com.au/siteassets/veggycationvegetable/eggplant.jpg"
     ),
     (
         "Mango",
@@ -49,7 +49,7 @@ VALUES (
     ),
     (
         "Cookies",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH2anG2yRDxQ6cGhG8EQ4CAQPycxBIFPgecg&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH2anG2yRDxQ6cGhG8EQ4CAQPycxBIFPgecg&s"
     ),
     (
         "Nutella",
@@ -57,7 +57,7 @@ VALUES (
     ),
     (
         "Grapes",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRR1Vf4V4LwG5FgQAMhT-rSMywNbqWI-9efDg&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRR1Vf4V4LwG5FgQAMhT-rSMywNbqWI-9efDg&s"
     ),
     (
         "Broccoli",
@@ -989,7 +989,7 @@ VALUES (
         (
             SELECT id
             FROM products
-            WHERE name = 'Mlik'
+            WHERE name = 'Milk'
         ),
         'fairlife 2% Ultrafiltered Milk 1.5L Bottle, 1.5 x L',
         5.98
@@ -1003,7 +1003,7 @@ VALUES (
         (
             SELECT id
             FROM products
-            WHERE name = 'Mlik'
+            WHERE name = 'Milk'
         ),
         'Sealtest Partly Skimmed 2% Milk',
         6.08

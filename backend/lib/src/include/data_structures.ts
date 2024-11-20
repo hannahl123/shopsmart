@@ -25,9 +25,17 @@ export function Arr2d(sx: number, sy: number, v: any = 0): Array<Array<any>> {
 
 export function Arr3d(sx: number, sy: number, sz: number, v: any = 0): Array<Array<Array<any>>> {
     let arr: Array<Array<Array<any>>> = [];
-    for (let x = 0; x < sx; x++) {
-        arr.push(Arr2d(sy, sz, v));
-    }
+    for (let x = 0; x < sx; x++) {{
+        let square: Array<Array<any>> = [];
+        for (let y = 0; y < sy; y++) {
+            let line: Array<any> = [];
+            for (let z = 0; z < sz; z++) {
+                line.push(v);
+            }
+            square.push(line);
+        }
+        arr.push(square);
+    }}
     return arr;
 }
 

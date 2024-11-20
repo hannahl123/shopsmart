@@ -1,6 +1,7 @@
 import * as ds from "./include/data_structures";
 import { ShoppingData, Company, Store, Product } from "./types";
 import * as locations from "./locations";
+import { assert } from "console";
 
 // TYPES
 
@@ -133,18 +134,22 @@ function shortestPath_dijkstra(
     }
 
     const HOME = ns;
-    let dist: Array<Array<Array<number>>> = ds.Arr3d(ns, 1<<ns, 1<<nr, Infinity);
-    let path: Array<Array<Array<number>>> = ds.Arr3d(ns, 1<<ns, 1<<nr, Infinity);
+    let dist: Array<Array<Array<number>>> = ds.Arr3d(ns+1, 1<<ns, 1<<nr, Infinity);
+    let path: Array<Array<Array<number>>> = ds.Arr3d(ns+1, 1<<ns, 1<<nr, Infinity);
     let pq = new ds.PriorityQueue<DijkstraState>(DijkstraState.compare);
     pq.push(new DijkstraState(0, HOME, 0, 0));
     while (!pq.empty()) {
         let curr = pq.top();
         if (dist[curr.at][curr.storeVis][curr.reqVis] != Infinity) {
+            pq.pop();
             continue;
         }
         dist[curr.at][curr.storeVis][curr.reqVis] = -curr.time;
         if (curr.reqVis == (1<<nr)-1) {
-            if (curr.at == HOME) {break;}
+            if (curr.at == HOME) {
+                pq.pop();
+                return dist[curr.at][curr.storeVis][curr.reqVis];
+            }
             else {
                 pq.push(new DijkstraState(
                     curr.time - graph[curr.at][HOME]*distanceToPrice,
@@ -155,23 +160,30 @@ function shortestPath_dijkstra(
             }
         }
         for (let next = 0; next < ns; next++) {
-            pq.push(new DijkstraState(
-                curr.time - graph[curr.at][next]*distanceToPrice,
-                next,
-                curr.storeVis | (1<<next),
-                curr.reqVis
-            ));
+            if (!((curr.reqVis>>next)%2)) {
+                pq.push(new DijkstraState(
+                    curr.time - graph[curr.at][next]*distanceToPrice,
+                    next,
+                    curr.storeVis | (1<<next),
+                    curr.reqVis
+                ));
+            }
         }
-        for (let buy = 0; buy < nr; buy++) {
-            pq.push(new DijkstraState(
-                curr.time - priceAtStore[curr.at][buy],
-                curr.at,
-                curr.storeVis,
-                curr.reqVis | (1<<buy)
-            ));
+        if (curr.at != HOME) {
+            for (let buy = 0; buy < nr; buy++) {
+                if (!((curr.reqVis>>buy)%2)) {
+                    pq.push(new DijkstraState(
+                        curr.time - priceAtStore[curr.at][buy],
+                        curr.at,
+                        curr.storeVis,
+                        curr.reqVis | (1<<buy)
+                    ));
+                }
+            }
         }
         pq.pop();
     }
+    return Infinity;
 }
 
 // MAIN
@@ -179,8 +191,11 @@ function shortestPath_dijkstra(
 function dataMain() {
     console.log(data);
     let req = new Map();
-    req.set("a", 1);
-    loadData("", 1, req);
-    // shortestPath_dijkstra(undefined, req, 0);
+    req.set("A", 1);
+    req.set("B", 2);
+    loadData("", 100, req);
+    let graph = constructGraph();
+    let dist = shortestPath_dijkstra(graph, req, 0.1);
+    console.log(dist);
 }
 dataMain();

@@ -10,19 +10,39 @@ export default function ItemsList() {
     const [open, setOpen] = useState(false);
     const [value, setValue] = useState(null);
     const [items, setItems] = useState([
-        { label: 'Date Added (Newest to Oldest)', value: 'dateadded1' },
-        { label: 'Date Added (Oldest to Newest)', value: 'dateadded2' },
+        { label: 'Date Added (Most Recent)', value: 'dateadded1' },
+        { label: 'Date Added (Oldest)', value: 'dateadded2' },
         { label: 'Alphabetical (Ascending)', value: 'alpha1' },
         { label: 'Alphabetical (Descending)', value: 'alpha2' },
     ]);
 
-    const tableData = [
+    const [selectedRows, setSelectedRows] = useState<number[]>([]);
+
+    const [tableData, setTableData] = useState([
         {item: 'Apples', date: '2024-11-19', select: 'Select' },
         {item: 'Oranges', date: '2024-11-18', select: 'Select' },
         {item: 'Avocados', date: '2024-11-17', select: 'Select' },
         {item: 'Bananas', date: '2024-11-16', select: 'Select' },
         {item: 'Butter', date: '2024-11-16', select: 'Select' },
-    ];
+    ]);
+
+    const toggleSelection = (index: number) => {
+        if (selectedRows.includes(index)) {
+            setSelectedRows(selectedRows.filter((i) => i !== index));
+        } else {
+            setSelectedRows([...selectedRows, index]);
+        }
+    };
+
+    const removeSelectedItems = () => {
+        setTableData(tableData.filter((_, index) => !selectedRows.includes(index)));
+        setSelectedRows([]); // Clear selection after removal
+    };
+
+    const clearAllItems = () => {
+        setTableData([]);
+        setSelectedRows([]);
+    };
 
     return (
         <View style={styles.view}>
@@ -44,7 +64,8 @@ export default function ItemsList() {
                     setValue={setValue}
                     setItems={setItems}
                     placeholder="Select an Option"
-                    style={styles.dropdown}
+                    style={styles.dropdown} 
+                    textStyle={{color: Colors.light.text}}
                     dropDownContainerStyle={styles.dropdownContainer}
                 />
             </View>
@@ -62,8 +83,15 @@ export default function ItemsList() {
                     <View key={index} style={styles.row}>
                         <Text style={styles.cell}>{row.item}</Text>
                         <Text style={[styles.cell, {marginLeft: '-10%'}]}>{row.date}</Text>
-                        <TouchableOpacity style={[styles.selectButton, {marginRight: '7%'}]}>
-                            <MaterialIcons name="check-box" size={24} color={Colors.light.background} />
+                        <TouchableOpacity 
+                            style={[styles.selectButton, {marginRight: '7%'}]} 
+                            onPress={() => toggleSelection(index)}
+                        >
+                            <MaterialIcons 
+                                name={selectedRows.includes(index) ? 'check-box' : 'check-box-outline-blank'} 
+                                size={24} 
+                                color={Colors.light.background} 
+                            />
                         </TouchableOpacity>
                     </View>
                 ))}
@@ -71,11 +99,11 @@ export default function ItemsList() {
             </View>
 
             <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button} onPress={removeSelectedItems}>
               <Text style={styles.buttonText}>Remove Selected</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button}>
-              <Text style={styles.buttonText}>Clear All</Text>
+            <TouchableOpacity style={styles.button} onPress={clearAllItems}>
+              <Text style={styles.buttonText}>Delete All</Text>
             </TouchableOpacity>
             </View>
         </View>

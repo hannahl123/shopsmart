@@ -15,7 +15,7 @@ export const useStyles = () => {
             fontWeight: 'bold', 
             color: Colors.light.text, 
             position: 'absolute', 
-            top: '8%',
+            top: '5%',
             left: '13%',
         }, 
         header: {
@@ -23,7 +23,7 @@ export const useStyles = () => {
             fontWeight: 'semibold', 
             color: Colors.light.text, 
             textAlign: 'center', 
-            marginTop: '25%',
+            marginTop: '10%',
         }, 
         video: {
             width: '100%', 
@@ -86,7 +86,6 @@ export const useStyles = () => {
             borderRadius: 8,
             paddingVertical: 5,
             paddingHorizontal: 15,
-            marginHorizontal: 5,
         },
         accountButton: {
             borderWidth: 1, 
@@ -111,17 +110,17 @@ export const useStyles = () => {
         dropdown: {
             borderColor: Colors.light.text,
             color: Colors.light.text,
-            width: '72%',
+            width: '73%',
             marginLeft: '5%',
-            marginTop: '5%',
-            padding: '2%',
+            marginVertical: '5%',
+            padding: '3%',
         }, 
         dropdownContainer: {
-            width: '70%',
+            width: '73%',
             color: Colors.light.text,
             borderColor: Colors.light.text,
             marginLeft: '5%',
-            marginTop: '5%',
+            marginTop: '5%', 
         }, 
         cell: {
             flex: 1,
@@ -147,7 +146,7 @@ export const useStyles = () => {
             borderBottomColor: Colors.light.background, 
         }, 
         searchButton: {
-            fontSize: 20, 
+            fontSize: 18, 
             color: Colors.light.text, 
             textAlign: 'right', 
             paddingHorizontal: '2%',

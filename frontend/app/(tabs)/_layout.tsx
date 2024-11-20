@@ -66,7 +66,7 @@ export default function RootLayout() {
         name="itemsList" 
         options={{
           title: "YOUR ITEMS", 
-          headerShown: true,
+          headerShown: true, 
         }}
       />
     </Tabs>

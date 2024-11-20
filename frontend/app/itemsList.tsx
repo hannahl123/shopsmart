@@ -26,6 +26,13 @@ export default function ItemsList() {
 
     return (
         <View style={styles.view}>
+            <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+                <Text style={[styles.title, {position: 'relative', left: 0}]}>ShopSmart</Text>
+                <TouchableOpacity style={[styles.button]}>
+                <Text style={[styles.buttonText, {marginTop: '5%'}]}>Add Item</Text>
+                </TouchableOpacity>
+            </View>
+
             <Text style={[styles.header, {fontWeight: 'bold', fontSize: 25, marginBottom: '5%'}]}>YOUR ITEMS</Text>
             <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                 <Text style={[styles.header, {marginTop: '10%'}]}>Sort By: </Text>

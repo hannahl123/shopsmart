@@ -12,9 +12,14 @@ export default function Account() {
   return (
     <View style={styles.view}>
 
-      <Text style={styles.title}>ShopSmart</Text>
+      <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+        <Text style={[styles.title, {position: 'relative', left: 0}]}>ShopSmart</Text>
+        <TouchableOpacity style={[styles.button]}>
+          <Text style={[styles.buttonText, {marginTop: '5%'}]}>Add Item</Text>
+        </TouchableOpacity>
+      </View>
       <Text style={styles.header}>Your Account</Text>
-      <Text style={[styles.optionText, { marginTop: '15%' }]}>Email:</Text>
+      <Text style={[styles.optionText, { marginTop: '10%' }]}>Email:</Text>
       <Text style={[styles.input, { width: '100%', marginTop: '5%' }]}> * Email address * </Text>
       <View style={{marginTop: '15%'}}>
         <TouchableOpacity style={styles.accountButton} onPress={() => router.push('/trip')}>

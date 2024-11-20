@@ -105,7 +105,8 @@ export const useStyles = () => {
             borderRadius: 8, 
             width: '35%',
             alignSelf: 'flex-end',
-            padding: 5,
+            padding: '3%',
+            color: Colors.light.text, 
         }, 
         dropdown: {
             borderColor: Colors.light.text,

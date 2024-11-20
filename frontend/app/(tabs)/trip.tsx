@@ -44,7 +44,6 @@ export default function Trip() {
             <Text style={styles.buttonText}>Auto</Text>
           </TouchableOpacity>
         </View>
-        
     </View>
   );
 }

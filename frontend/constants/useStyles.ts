@@ -165,6 +165,36 @@ export const useStyles = () => {
         }, 
         searchInput: {
             color: Colors.light.text, 
-        }
+        }, 
+        modalOverlay: {
+            flex: 1,
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            justifyContent: 'center',
+            alignItems: 'center',
+        },
+        modalContainer: {
+            width: '80%',
+            backgroundColor: '#fff',
+            padding: 20,
+            borderRadius: 10,
+        },
+        modalTitle: {
+            fontSize: 20,
+            fontWeight: 'bold',
+            marginBottom: 10,
+            textAlign: 'center', 
+            color: Colors.light.text
+        },
+        modalInput: {
+            borderBottomWidth: 1,
+            borderColor: Colors.light.text,
+            marginBottom: 20,
+            padding: 10,
+            fontSize: 16,
+        },
+        modalButtons: {
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+        },
     })
 }

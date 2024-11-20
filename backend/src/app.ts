@@ -81,7 +81,7 @@ app.get("/api/shopping-items/:userId", async (req, res) => {
         INNER JOIN company_items
             ON shopping_items.product_id = company_items.product_id
         WHERE user_id = ${userId}
-        GROUP BY product_id;
+        GROUP BY company_items.product_id;
     `);
     res.send(items);
 });

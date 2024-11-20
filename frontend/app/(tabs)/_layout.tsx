@@ -1,6 +1,6 @@
 import { MaterialIcons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
-import { Colors } from "../constants/Colors";
+import { Colors } from "../../constants/Colors";
 
 export default function RootLayout() {
   return (
@@ -60,6 +60,13 @@ export default function RootLayout() {
               size={25}
             />
           ),
+        }}
+      />
+      <Tabs.Screen
+        name="itemsList" 
+        options={{
+          title: "YOUR ITEMS", 
+          headerShown: true,
         }}
       />
     </Tabs>

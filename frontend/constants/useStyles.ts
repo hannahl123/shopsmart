@@ -25,6 +25,7 @@ export const useStyles = () => {
             fontWeight: 'semibold', 
             color: Colors.light.text, 
             textAlign: 'center', 
+            marginTop: '25%',
         }, 
         video: {
             width: '100%', 
@@ -89,9 +90,39 @@ export const useStyles = () => {
             paddingHorizontal: 15,
             marginHorizontal: 5,
         },
+        accountButton: {
+            borderWidth: 1, 
+            borderColor: Colors.light.text, 
+            borderRadius: 8, 
+            paddingVertical: '4%', 
+            marginVertical: '5%', 
+        }, 
         buttonText: {
             fontSize: 16,
             color: '#0077B6',
         },
+        input: {
+            borderWidth: 1, 
+            borderColor: Colors.light.text,
+            borderRadius: 8, 
+            width: '35%',
+            alignSelf: 'flex-end',
+            padding: 5,
+        }, 
+        dropdown: {
+            borderColor: Colors.light.text,
+            color: Colors.light.text,
+            width: '70%',
+            marginLeft: '5%',
+            marginTop: '5%',
+            padding: '2%',
+        }, 
+        dropdownContainer: {
+            width: '70%',
+            color: Colors.light.text,
+            borderColor: Colors.light.text,
+            marginLeft: '5%',
+            marginTop: '5%',
+        }
     })
 }

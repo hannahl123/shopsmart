@@ -15,7 +15,7 @@ export const useStyles = () => {
             fontWeight: 'bold', 
             color: Colors.light.text, 
             position: 'absolute', 
-            top: '8%',
+            top: '5%',
             left: '13%',
         }, 
         header: {
@@ -23,7 +23,7 @@ export const useStyles = () => {
             fontWeight: 'semibold', 
             color: Colors.light.text, 
             textAlign: 'center', 
-            marginTop: '25%',
+            marginTop: '10%',
         }, 
         video: {
             width: '100%', 
@@ -86,7 +86,6 @@ export const useStyles = () => {
             borderRadius: 8,
             paddingVertical: 5,
             paddingHorizontal: 15,
-            marginHorizontal: 5,
         },
         accountButton: {
             borderWidth: 1, 
@@ -111,17 +110,17 @@ export const useStyles = () => {
         dropdown: {
             borderColor: Colors.light.text,
             color: Colors.light.text,
-            width: '72%',
+            width: '73%',
             marginLeft: '5%',
-            marginTop: '5%',
-            padding: '2%',
+            marginVertical: '5%',
+            padding: '3%',
         }, 
         dropdownContainer: {
-            width: '70%',
+            width: '73%',
             color: Colors.light.text,
             borderColor: Colors.light.text,
             marginLeft: '5%',
-            marginTop: '5%',
+            marginTop: '5%', 
         }, 
         cell: {
             flex: 1,
@@ -147,10 +146,11 @@ export const useStyles = () => {
             borderBottomColor: Colors.light.background, 
         }, 
         searchButton: {
-            fontSize: 20, 
+            fontSize: 35, 
             color: Colors.light.text, 
             textAlign: 'right', 
             paddingHorizontal: '2%',
+            marginTop: '5%',
         }, 
         searchBar: {
             borderWidth: 1, 
@@ -158,14 +158,47 @@ export const useStyles = () => {
             borderRadius: 8, 
             padding: '2.5%', 
             paddingLeft: '4%', 
-            height: '6%', 
-            marginVertical: '10%', 
             flexDirection: 'row', 
             justifyContent: 'space-between', 
+            marginLeft: '10%',
 
         }, 
         searchInput: {
             color: Colors.light.text, 
+        }, 
+        modalOverlay: {
+            flex: 1,
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            justifyContent: 'center',
+            alignItems: 'center',
+        },
+        modalContainer: {
+            width: '80%',
+            backgroundColor: '#fff',
+            padding: 20,
+            borderRadius: 10,
+        },
+        modalTitle: {
+            fontSize: 20,
+            fontWeight: 'bold',
+            marginBottom: 10,
+            textAlign: 'center', 
+            color: Colors.light.text
+        },
+        modalInput: {
+            borderBottomWidth: 1,
+            borderColor: Colors.light.text,
+            marginBottom: 20,
+            padding: 10,
+            fontSize: 16,
+        },
+        modalButtons: {
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+        }, 
+        store: {
+            borderWidth: 2, 
+            
         }
     })
 }

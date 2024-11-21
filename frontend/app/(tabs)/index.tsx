@@ -57,16 +57,8 @@ export default function Index() {
         </ScrollView>
       </View>
       <Text style={[styles.header, {marginTop: '5%'}]}>BEST DEALS AT...</Text>
-      {/* <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-          <TouchableOpacity
-            onPress={() => router.push('/(tabs)/trip')} 
-            style={styles.store}
-          >
-            <Image source={require('frontend/assets/images/react-logo.png')}/>
-          </TouchableOpacity>
-      </View> */}
 
-      <View style={{flexDirection: 'row', justifyContent: 'space-between', marginTop: '5%'}}>
+      <View style={{flexDirection: 'row', justifyContent: 'space-between', marginTop: '10%'}}>
         <TouchableOpacity style={styles.iconBox} onPress={() => router.push('walmart')}>
           <Image source={require('./walmart.jpeg')} style={styles.image} />
         </TouchableOpacity>

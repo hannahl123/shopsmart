@@ -32,16 +32,11 @@ export default function ItemsList() {
 
     return (
         <View style={styles.view}>
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                {/* <Text style={[styles.title, {position: 'relative', left: 0}]}>ShopSmart</Text> */}
+            <View style={{ flexDirection: 'row'}}>
                 {/* Back Button */}
                 <TouchableOpacity onPress={() => router.push('/')} style={{ marginTop: 0, marginLeft: 0, flexDirection: 'row', justifyContent: 'space-between' }}>
                     <MaterialIcons name="arrow-back" size={24} color={Colors.light.text} style={{marginTop: '3%'}}/>
-                    <Text style={[styles.buttonText, {marginTop: '5%', marginHorizontal: '2%'}]}>Back</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={[styles.button]} onPress={() => setModalVisible(true)}>
-                    <Text style={[styles.buttonText, { marginTop: '5%' }]}>Add Item</Text>
+                    <Text style={[styles.buttonText, {marginTop: '3%', marginHorizontal: '2%', fontSize: 20}]}>Back</Text>
                 </TouchableOpacity>
             </View>
             <Text style={[styles.header, { fontWeight: 'bold', fontSize: 25}]}>WALMART</Text>

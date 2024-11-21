@@ -194,8 +194,8 @@ function dataMain() {
     let req = new Map();
     req.set("A", 1);
     req.set("B", 2);
-    loadData("", 100, req);
-    let graph = constructGraph("");
+    loadData("Home", 100, req);
+    let graph = constructGraph("Home");
     let [dist, path] = shortestPath_dijkstra(graph, req, 0.1);
     console.log(dist);
 }

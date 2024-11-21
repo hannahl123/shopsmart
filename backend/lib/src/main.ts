@@ -204,6 +204,8 @@ function dataMain() {
     let req = new Map();
     req.set("A", 1);
     req.set("B", 2);
+    req.set("C", 1);
+    req.set("D", 1);
     loadData("Home", 100, req);
     let ns = stores.length;
     let nr = req.size;

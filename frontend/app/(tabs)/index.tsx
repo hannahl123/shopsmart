@@ -16,7 +16,7 @@ import { useExpoRouter } from "expo-router/build/global-state/router-store";
 import { getShoppingList } from "@/lib/api";
 
 type ShoppingItem = {
-    name: string;
+    item: string;
     price: string;
     store: string;
 };
@@ -42,7 +42,7 @@ export default function Index() {
             setFilteredData(tableData); // Reset to original data if the query is empty
         } else {
             const filtered = tableData.filter(item =>
-                item.name.toLowerCase().includes(query.toLowerCase())
+                item.item.toLowerCase().includes(query.toLowerCase())
             );
             setFilteredData(filtered);
         }
@@ -105,7 +105,7 @@ export default function Index() {
                 <ScrollView style={{ maxHeight: "100%" }}>
                     {tableData.map((row, index) => (
                         <View key={index} style={styles.row}>
-                            <Text style={styles.cell}>{row.name}</Text>
+                            <Text style={styles.cell}>{row.item}</Text>
                             <Text
                                 style={[
                                     styles.cell,

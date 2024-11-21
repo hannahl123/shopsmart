@@ -35,16 +35,15 @@ export default function TNT() {
             <View style={{ flexDirection: 'row' }}>
                 {/* Back Button */}
                 <TouchableOpacity onPress={() => router.push('/')} style={{ marginTop: 0, marginLeft: 0, flexDirection: 'row', justifyContent: 'space-between' }}>
-                    <MaterialIcons name="arrow-back" size={24} color={Colors.light.text} style={{marginTop: '3%'}}/>
-                    <Text style={[styles.buttonText, {marginTop: '3%', marginHorizontal: '2%', fontSize: 20}]}>Back</Text>
+                    <MaterialIcons name="arrow-back" size={24} color={Colors.light.text} style={{ marginTop: '3%' }} />
+                    <Text style={[styles.buttonText, { marginTop: '3%', marginHorizontal: '2%', fontSize: 20 }]}>Back</Text>
                 </TouchableOpacity>
             </View>
             <Text style={[styles.header, { fontWeight: 'bold', fontSize: 25 }]}>T&T</Text>
 
             <Text style={[styles.header, { marginTop: '5%', justifyContent: 'center' }]}>Items Wanted at T&T</Text>
             <View style={[styles.container, {
-                padding: 10,
-                margin: 10, marginTop: '5%'
+                padding: 10, margin: 10, marginTop: '5%', maxHeight: '30%'
             }]}>
                 <View style={styles.headerRow}>
                     <Text style={styles.headerText}>Item</Text>
@@ -63,8 +62,7 @@ export default function TNT() {
 
             <Text style={[styles.header, { marginTop: '5%', justifyContent: 'center' }]}>Top Deals at T&T</Text>
             <View style={[styles.container, {
-                padding: 10,
-                margin: 10, marginTop: '5%'
+                padding: 10, margin: 10, marginTop: '5%', maxHeight: '30%'
             }]}>
                 <View style={styles.headerRow}>
                     <Text style={styles.headerText}>Item</Text>

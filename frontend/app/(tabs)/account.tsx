@@ -3,6 +3,7 @@ import { Text, View, Button, TextInput, TouchableOpacity } from 'react-native';
 import { useStyles } from "@/constants/useStyles";
 import { useExpoRouter } from "expo-router/build/global-state/router-store";
 import { MaterialIcons } from '@expo/vector-icons';
+import { Colors } from '@/constants/Colors';
 
 export default function Account() {
 
@@ -23,7 +24,7 @@ export default function Account() {
       </View>
       <Text style={styles.header}>Your Account</Text>
       <Text style={[styles.optionText, { marginTop: '10%' }]}>Email:</Text>
-      <Text style={[styles.input, { width: '100%', marginTop: '5%' }]}> * Email address * </Text>
+      <Text style={[styles.input, { width: '100%', marginTop: '5%', backgroundColor: '#b0edff' }]}> h652liu@uwaterloo.ca </Text>
       <View style={{ marginTop: '15%' }}>
         <TouchableOpacity style={styles.accountButton} onPress={() => alert("Work in progress...")}>
           <Text style={[styles.buttonText, { textAlign: 'center' }]}>Trip History</Text>
@@ -31,7 +32,7 @@ export default function Account() {
         <TouchableOpacity style={styles.accountButton} onPress={() => router.push('/itemsList')}>
           <Text style={[styles.buttonText, { textAlign: 'center' }]}>Items List</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.accountButton} onPress={() => router.push('/logout')}>
+        <TouchableOpacity style={styles.accountButton} onPress={() => alert("Logged out...(?)")}>
           <Text style={[styles.buttonText, { textAlign: 'center' }]}>Log Out</Text>
         </TouchableOpacity>
       </View>

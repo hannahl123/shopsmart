@@ -43,7 +43,7 @@ export default function Walmart() {
 
             <Text style={[styles.header, {marginTop: '5%', justifyContent: 'center'}]}>Items Wanted at Walmart</Text>
             <View style={[styles.container, {padding: 10,
-                margin: 10, marginTop: '5%'}]}>
+                margin: 10, marginTop: '5%', maxHeight: '30%'}]}>
                 <View style={styles.headerRow}>
                     <Text style={styles.headerText}>Item</Text>
                     <Text style={styles.headerText}>Best Price</Text>
@@ -61,7 +61,7 @@ export default function Walmart() {
 
             <Text style={[styles.header, {marginTop: '5%', justifyContent: 'center'}]}>Top Deals at Walmart</Text>
             <View style={[styles.container, {padding: 10,
-                margin: 10, marginTop: '5%'}]}>
+                margin: 10, marginTop: '5%', maxHeight: '30%'}]}>
                 <View style={styles.headerRow}>
                     <Text style={styles.headerText}>Item</Text>
                     <Text style={styles.headerText}>Best Price</Text>

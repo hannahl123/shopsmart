@@ -43,7 +43,7 @@ export default function NOFRILLS() {
 
             <Text style={[styles.header, {marginTop: '5%', justifyContent: 'center'}]}>Items Wanted at No Frills</Text>
             <View style={[styles.container, {padding: 10,
-                margin: 10, marginTop: '5%'}]}>
+                margin: 10, marginTop: '5%', maxHeight: '30%'}]}>
                 <View style={styles.headerRow}>
                     <Text style={styles.headerText}>Item</Text>
                     <Text style={styles.headerText}>Best Price</Text>
@@ -60,8 +60,7 @@ export default function NOFRILLS() {
             </View>
 
             <Text style={[styles.header, {marginTop: '5%', justifyContent: 'center'}]}>Top Deals at No Frills</Text>
-            <View style={[styles.container, {padding: 10,
-                margin: 10, marginTop: '5%'}]}>
+            <View style={[styles.container, {padding: 10, margin: 10, marginTop: '5%', maxHeight: '30%'}]}>
                 <View style={styles.headerRow}>
                     <Text style={styles.headerText}>Item</Text>
                     <Text style={styles.headerText}>Best Price</Text>

@@ -2,6 +2,8 @@
     "pairs": [
         ["Home", 0, 0],
         ["Generic Store", 1, 2],
-        ["Generic Store2", 2, -1]
+        ["Generic Store 2", 2, -1],
+        ["Another Store 1", 4, 9],
+        ["Another Store 2", 5, -2]
     ]
 }

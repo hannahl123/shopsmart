@@ -17,7 +17,7 @@
                     ]
                 },
                 {
-                    "location": "Generic Store2",
+                    "location": "Generic Store 2",
                     "products": [
                         {
                             "name": "A",
@@ -26,6 +26,33 @@
                         {
                             "name": "B",
                             "price": 1
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Another Company",
+            "stores":[
+                {
+                    "location": "Another Store 1",
+                    "products": [
+                        {
+                            "name": "C",
+                            "price": 10
+                        },
+                        {
+                            "name": "D",
+                            "price": 10000
+                        }
+                    ]
+                },
+                {
+                    "location": "Another Store 2",
+                    "products": [
+                        {
+                            "name": "D",
+                            "price": 12
                         }
                     ]
                 }

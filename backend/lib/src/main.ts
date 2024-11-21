@@ -8,7 +8,7 @@ import * as cmath from "./include/math"
 
 // DEFINITIONS
 
-let data: ShoppingData = ShoppingData.read(); // all shopping data
+let data: ShoppingData = ShoppingData.readSample(); // all shopping data
 let stores: Array<Store> = []; // stores to be read
 let storesByName: Map<string, Store> = new Map(); // map stores by name
 let companies: Array<Company> = []; // companies to be read
@@ -204,6 +204,9 @@ function dataMain() {
     let req = new Map();
     req.set("A", 1);
     req.set("B", 2);
+    req.set("C", 1);
+    req.set("D", 1);
+    let reqAsArr = Array.from(req.entries());
     loadData("Home", 100, req);
     let ns = stores.length;
     let nr = req.size;

@@ -6,7 +6,7 @@ import DropDownPicker from 'react-native-dropdown-picker';
 import { MaterialIcons } from "@expo/vector-icons";
 import { useRouter } from 'expo-router';
 
-export default function ItemsList() {
+export default function Walmart() {
     const styles = useStyles();
     const router = useRouter();
 

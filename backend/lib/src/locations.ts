@@ -6,7 +6,7 @@ import * as cmath from "./include/math";
  */
 class LocationData {
     pairs: Array<[string, number, number]> = [];
-    static read(): LocationData {
+    static readSample(): LocationData {
         return JSON.parse(fs.readFileSync("../sample_data/address_to_gps.json", "utf8"));
     }
 }
@@ -17,7 +17,7 @@ let gpsMap: Map<string,[number, number]> = new Map();
  * Setup necessary data before the library works.
  */
 function setupLocations() {
-    let locData: LocationData = LocationData.read();
+    let locData: LocationData = LocationData.readSample();
     for (let i = 0; i < locData.pairs.length; i++) {
         let [name, long, lat] = locData.pairs[i];
         gpsMap.set(name, [long, lat]);

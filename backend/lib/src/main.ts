@@ -63,12 +63,12 @@ function loadData(
 /**
  * Constructs the graph given data created by loadData().
  */
-function constructGraph(): Array<Array<number>> {
+function constructGraph(center: string): Array<Array<number>> {
     let ns = stores.length;
     let graph: Array<Array<number>> = ds.Arr2d(ns+1, ns+1);
     for (let i = 0; i < ns; i++) {
         graph[i][i] = 0;
-        graph[ns][i] = graph[i][ns] = locations.distance(stores[i].location, "HOME");
+        graph[ns][i] = graph[i][ns] = locations.distance(stores[i].location, center);
         for (let j = i + 1; j < ns; j++) {
             let q = locations.distance(stores[i].location, stores[j].location);
             graph[i][j] = q;
@@ -85,12 +85,13 @@ function shortestPath_dijkstra(
     graph: Array<Array<number>>,
     requirements: Map<string, number>,
     distanceToPrice: number,
-) {
+): [number, Array<Array<Array<any>>>] {
     // input sizes cannot exceed maximum
     let ns = stores.length;
     let nr = requirements.size;
     if (ns+nr >= 32) {
-        console.log("Max number of stores + requirements exceeded"); return;
+        console.log("Max number of stores + requirements exceeded");
+        assert(false);
     }
     console.log("ns: "+ns+", nr: "+nr);
 
@@ -148,7 +149,7 @@ function shortestPath_dijkstra(
         if (curr.reqVis == (1<<nr)-1) {
             if (curr.at == HOME) {
                 pq.pop();
-                return dist[curr.at][curr.storeVis][curr.reqVis];
+                return [dist[curr.at][curr.storeVis][curr.reqVis], path];
             }
             else {
                 pq.push(new DijkstraState(
@@ -183,7 +184,7 @@ function shortestPath_dijkstra(
         }
         pq.pop();
     }
-    return Infinity;
+    return [Infinity, path];
 }
 
 // MAIN
@@ -194,8 +195,8 @@ function dataMain() {
     req.set("A", 1);
     req.set("B", 2);
     loadData("", 100, req);
-    let graph = constructGraph();
-    let dist = shortestPath_dijkstra(graph, req, 0.1);
+    let graph = constructGraph("");
+    let [dist, path] = shortestPath_dijkstra(graph, req, 0.1);
     console.log(dist);
 }
 dataMain();

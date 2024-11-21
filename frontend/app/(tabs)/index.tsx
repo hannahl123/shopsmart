@@ -14,12 +14,7 @@ import { Colors } from "@/constants/Colors";
 import { useExpoRouter } from "expo-router/build/global-state/router-store";
 
 import { getShoppingList } from "@/lib/api";
-
-type ShoppingItem = {
-    item: string;
-    price: string;
-    store: string;
-};
+import { ShoppingItem } from "@/constants/types";
 
 export default function Index() {
     const styles = useStyles();

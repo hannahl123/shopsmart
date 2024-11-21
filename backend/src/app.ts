@@ -78,6 +78,7 @@ app.get("/api/shopping-items/:userId", async (req, res) => {
     const userId = req.params.userId;
     const items = await query(`
         SELECT
+            shopping_items.product_id,
             name as item,
             MIN(price) as price
         FROM shopping_items

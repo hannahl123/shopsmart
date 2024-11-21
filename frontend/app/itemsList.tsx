@@ -13,7 +13,9 @@ import { Colors } from "@/constants/Colors";
 import DropDownPicker from "react-native-dropdown-picker";
 import { MaterialIcons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
-import { getShoppingList } from "@/lib/api";
+import { getShoppingList, removeItem } from "@/lib/api";
+
+import { ShoppingItem } from "@/constants/types";
 
 export default function ItemsList() {
     const styles = useStyles();
@@ -30,13 +32,15 @@ export default function ItemsList() {
 
     const [selectedRows, setSelectedRows] = useState<number[]>([]);
 
-    const [tableData, setTableData] = useState([
+    const [tableData, setTableData] = useState<ShoppingItem[]>(
+        /*[
         { item: "Apples", date: "2024-11-19", select: "Select" },
         { item: "Oranges", date: "2024-11-18", select: "Select" },
         { item: "Avocados", date: "2024-11-17", select: "Select" },
         { item: "Bananas", date: "2024-11-16", select: "Select" },
         { item: "Butter", date: "2024-11-16", select: "Select" },
-    ]);
+    ]*/ []
+    );
 
     useEffect(() => {
         getShoppingList(2).then(data => {
@@ -54,6 +58,9 @@ export default function ItemsList() {
     };
 
     const removeSelectedItems = () => {
+        for (const index of selectedRows) {
+            removeItem(2, tableData[index].product_id);
+        }
         setTableData(
             tableData.filter((_, index) => !selectedRows.includes(index))
         );
@@ -61,6 +68,9 @@ export default function ItemsList() {
     };
 
     const clearAllItems = () => {
+        for (const item of tableData) {
+            removeItem(2, item.product_id);
+        }
         setTableData([]);
         setSelectedRows([]);
     };

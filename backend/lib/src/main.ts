@@ -2,6 +2,7 @@ import * as ds from "./include/data_structures";
 import { ShoppingData, Company, Store, Product } from "./types";
 import * as locations from "./locations";
 import { assert } from "console";
+import * as cmath from "./include/math"
 
 // TYPES
 
@@ -79,13 +80,45 @@ function constructGraph(center: string): Array<Array<number>> {
 }
 
 /**
+ * For shortest path function.
+ * Dijstra State: {time, store bitmask, requirement bitmask}
+ */
+class DijkstraState {
+    time: number;
+    at: number = -1;
+    storeVis: number;
+    reqVis: number;
+    prevStatePtr: DijkstraState | null = null;
+
+    constructor(t: number, at1: number, x: number, y: number,
+        prev: DijkstraState | null = null
+    ) {
+        this.time = t;
+        this.storeVis = x;
+        this.reqVis = y;
+        this.at = at1;
+        this.prevStatePtr = prev;
+    }
+
+    static compare(x: DijkstraState, y: DijkstraState) {
+        if (x.time < y.time) {
+            return -1;
+        } else if (x.time > y.time) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+}
+
+/**
  * Shortest path.
  */
 function shortestPath_dijkstra(
     graph: Array<Array<number>>,
     requirements: Map<string, number>,
     distanceToPrice: number,
-): [number, Array<Array<Array<any>>>] {
+): [DijkstraState | null, Array<Array<Array<DijkstraState | null>>>] {
     // input sizes cannot exceed maximum
     let ns = stores.length;
     let nr = requirements.size;
@@ -107,36 +140,9 @@ function shortestPath_dijkstra(
         }
     }
 
-    /**
-     * Dijstra State: {time, store bitmask, requirement bitmask}
-     */
-    class DijkstraState {
-        time: number;
-        storeVis: number;
-        reqVis: number;
-        at: number = -1;
-
-        constructor(t: number, at1: number, x: number, y: number) {
-            this.time = t;
-            this.storeVis = x;
-            this.reqVis = y;
-            this.at = at1;
-        }
-
-        static compare(x: DijkstraState, y: DijkstraState) {
-            if (x.time < y.time) {
-                return -1;
-            } else if (x.time > y.time) {
-                return 1;
-            } else {
-                return 0;
-            }
-        }
-    }
-
     const HOME = ns;
     let dist: Array<Array<Array<number>>> = ds.Arr3d(ns+1, 1<<ns, 1<<nr, Infinity);
-    let path: Array<Array<Array<number>>> = ds.Arr3d(ns+1, 1<<ns, 1<<nr, Infinity);
+    let path: Array<Array<Array<DijkstraState | null>>> = ds.Arr3d(ns+1, 1<<ns, 1<<nr, Infinity);
     let pq = new ds.PriorityQueue<DijkstraState>(DijkstraState.compare);
     pq.push(new DijkstraState(0, HOME, 0, 0));
     while (!pq.empty()) {
@@ -146,17 +152,19 @@ function shortestPath_dijkstra(
             continue;
         }
         dist[curr.at][curr.storeVis][curr.reqVis] = -curr.time;
+        path[curr.at][curr.storeVis][curr.reqVis] = curr.prevStatePtr;
         if (curr.reqVis == (1<<nr)-1) {
             if (curr.at == HOME) {
                 pq.pop();
-                return [dist[curr.at][curr.storeVis][curr.reqVis], path];
+                return [curr, path];
             }
             else {
                 pq.push(new DijkstraState(
                     curr.time - graph[curr.at][HOME]*distanceToPrice,
                     HOME,
                     curr.storeVis,
-                    curr.reqVis
+                    curr.reqVis,
+                    curr
                 ));
             }
         }
@@ -166,7 +174,8 @@ function shortestPath_dijkstra(
                     curr.time - graph[curr.at][next]*distanceToPrice,
                     next,
                     curr.storeVis | (1<<next),
-                    curr.reqVis
+                    curr.reqVis,
+                    curr
                 ));
             }
         }
@@ -177,14 +186,15 @@ function shortestPath_dijkstra(
                         curr.time - priceAtStore[curr.at][buy],
                         curr.at,
                         curr.storeVis,
-                        curr.reqVis | (1<<buy)
+                        curr.reqVis | (1<<buy),
+                        curr
                     ));
                 }
             }
         }
         pq.pop();
     }
-    return [Infinity, path];
+    return [null, path];
 }
 
 // MAIN
@@ -195,8 +205,43 @@ function dataMain() {
     req.set("A", 1);
     req.set("B", 2);
     loadData("Home", 100, req);
+    let ns = stores.length;
+    let nr = req.size;
+    const HOME = ns;
+
     let graph = constructGraph("Home");
-    let [dist, path] = shortestPath_dijkstra(graph, req, 0.1);
-    console.log(dist);
+    let [state, path] = shortestPath_dijkstra(graph, req, 0.1);
+    let dist = Infinity;
+    if (state) {
+        dist = -state.time
+        console.log("TOTAL COST: "+dist);
+        let backtrack = [];
+        let state1: DijkstraState | null = state;
+        while (state1) {
+            backtrack.push(state1);
+            state1 = state1.prevStatePtr;
+        }
+        while (backtrack.length > 1) {
+            let from = backtrack[backtrack.length-1];
+            let to = backtrack[backtrack.length-2];
+            console.log(from.at, from.storeVis, from.reqVis);
+            console.log(to.at, to.storeVis, to.reqVis);
+            console.log("Incur "+(from.time-to.time)+" cost");
+            if (from.storeVis != to.storeVis) {
+                let si = cmath.logLastBit(from.storeVis^to.storeVis);
+                console.log("> Visit store: "+si);
+            } else if (from.reqVis != to.reqVis) {
+                let ri = cmath.logLastBit(from.reqVis^to.reqVis);
+                console.log("> Buy product: "+ri);
+            } else if (to.at == HOME) { 
+                console.log("> Go home")
+            } else { // shouldn't happen
+                
+            }
+            backtrack.pop();
+        }
+    } else {
+        console.log("Unreachable");
+    }
 }
 dataMain();

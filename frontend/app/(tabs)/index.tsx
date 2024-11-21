@@ -56,7 +56,7 @@ export default function Index() {
           ))}
         </ScrollView>
       </View>
-      <Text style={[styles.header, {marginTop: '10%'}]}>BEST DEALS AT...</Text>
+      <Text style={[styles.header, {marginTop: '5%'}]}>BEST DEALS AT...</Text>
       {/* <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
           <TouchableOpacity
             onPress={() => router.push('/(tabs)/trip')} 
@@ -66,6 +66,17 @@ export default function Index() {
           </TouchableOpacity>
       </View> */}
 
+      <View style={{flexDirection: 'row', justifyContent: 'space-between', marginTop: '5%'}}>
+        <TouchableOpacity style={styles.iconBox} onPress={() => router.push('walmart')}>
+          <Image source={require('./walmart.jpeg')} style={styles.image} />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.iconBox} onPress={() => router.push('nofrills')}>
+          <Image source={require('./nofrills.jpeg')} style={styles.image} />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.iconBox} onPress={() => router.push('tnt')}>
+          <Image source={require('./tnt.png')} style={styles.image} />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }

@@ -1,6 +1,6 @@
 import { useStyles } from '@/constants/useStyles';
 import React, { useState } from 'react';
-import { View, Text, useColorScheme, TouchableOpacity, ScrollView, Modal, TextInput } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView, Modal, TextInput } from 'react-native';
 import { Colors } from '@/constants/Colors';
 import DropDownPicker from 'react-native-dropdown-picker';
 import { MaterialIcons } from "@expo/vector-icons";

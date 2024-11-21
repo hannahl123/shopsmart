@@ -1,3 +1,4 @@
+import React from 'react';
 import { MaterialIcons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
 import { Colors } from "../../constants/Colors";
@@ -8,7 +9,7 @@ export default function RootLayout() {
       screenOptions={{
         headerShown: false, 
         tabBarStyle: {
-          height: '12%', 
+          height: '11%', 
           paddingTop: '3%', 
           paddingBottom: '3%',
           borderTopWidth: 1,
@@ -42,7 +43,7 @@ export default function RootLayout() {
           title: 'TRIP',
           tabBarIcon: ({focused}) => (
             <MaterialIcons 
-              name={'schedule'} 
+              name={'mode-of-travel'} 
               color={focused ? Colors.light.background : '#1E6091'} 
               size={25}
             />

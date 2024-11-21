@@ -204,7 +204,20 @@ export const useStyles = () => {
             borderRadius: 8,
             color: Colors.light.text, 
             borderColor: Colors.light.text, 
-        }, 
+        },
+        image: {
+            width: 65,
+            height: 65,
+            resizeMode: 'contain', // Maintain aspect ratio
+        },
+        iconBox: {
+            width: 70,
+            height: 70,
+            borderWidth: 1,
+            borderColor: '#56B4D3',
+            justifyContent: 'center',
+            alignItems: 'center',
+        },
         map: {
             width: '100%', 
             height: '50%', 

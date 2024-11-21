@@ -69,6 +69,24 @@ export default function RootLayout() {
           title: "YOUR ITEMS", 
         }}
       />
+      <Tabs.Screen 
+        name="walmart" 
+        options={{
+          title: "WALMART"
+        }}
+      />
+      <Tabs.Screen 
+        name="nofrills"
+        options={{
+          title: "NOFRILLS"
+        }}
+      />
+      <Tabs.Screen 
+        name="tnt"
+        options={{
+          title: "TNT"
+        }}
+      />
     </Tabs>
   );
 }

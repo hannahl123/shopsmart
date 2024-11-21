@@ -38,7 +38,7 @@ export default function Trip() {
         </View>
 
         <View style={{flexDirection: 'row', justifyContent: 'space-between', marginTop: '5%'}}>
-          <Text style={styles.label}>Priority:</Text>
+          <Text style={[styles.label, {marginTop: '2%'}]}>Priority:</Text>
           <TouchableOpacity style={styles.button}>
             <Text style={styles.buttonText}>Time</Text>
           </TouchableOpacity>

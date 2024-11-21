@@ -17,21 +17,6 @@ export default function Index() {
     {item: 'Butter', price: '$4.59', store: 'Sobeys' },
   ];
 
-  const [searchQuery, setSearchQuery] = useState('');
-  const [filteredData, setFilteredData] = useState(tableData);
-  // Handle search
-  const handleSearch = (query: string) => {
-    setSearchQuery(query);
-    if (query.trim() === '') {
-      setFilteredData(tableData); // Reset to original data if the query is empty
-    } else {
-      const filtered = tableData.filter((item) =>
-        item.item.toLowerCase().includes(query.toLowerCase())
-      );
-      setFilteredData(filtered);
-    }
-  };
-
   return (
     <View
       style={styles.view}
@@ -72,14 +57,14 @@ export default function Index() {
         </ScrollView>
       </View>
       <Text style={[styles.header, {marginTop: '10%'}]}>BEST DEALS AT...</Text>
-      <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+      {/* <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
           <TouchableOpacity
             onPress={() => router.push('/(tabs)/trip')} 
             style={styles.store}
           >
-            <Image></Image>
+            <Image source={require('frontend/assets/images/react-logo.png')}/>
           </TouchableOpacity>
-      </View>
+      </View> */}
 
     </View>
   );

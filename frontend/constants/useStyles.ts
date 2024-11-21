@@ -198,7 +198,12 @@ export const useStyles = () => {
         }, 
         store: {
             borderWidth: 2, 
-            
+            width: '10%',
+            height: '10%', 
+            padding: '10%',
+            borderRadius: 8,
+            color: Colors.light.text, 
+            borderColor: Colors.light.text, 
         }
     })
 }

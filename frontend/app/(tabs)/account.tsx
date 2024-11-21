@@ -22,7 +22,7 @@ export default function Account() {
       <Text style={[styles.optionText, { marginTop: '10%' }]}>Email:</Text>
       <Text style={[styles.input, { width: '100%', marginTop: '5%' }]}> * Email address * </Text>
       <View style={{marginTop: '15%'}}>
-        <TouchableOpacity style={styles.accountButton} onPress={() => router.push('/trip')}>
+        <TouchableOpacity style={styles.accountButton} onPress={() => alert("Work in progress...")}>
           <Text style={[styles.buttonText, {textAlign: 'center'}]}>Trip History</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.accountButton} onPress={() => router.push('/itemsList')}>

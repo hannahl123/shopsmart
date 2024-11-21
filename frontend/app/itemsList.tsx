@@ -67,9 +67,9 @@ export default function ItemsList() {
             <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                 {/* <Text style={[styles.title, {position: 'relative', left: 0}]}>ShopSmart</Text> */}
                 {/* Back Button */}
-                <TouchableOpacity onPress={() => router.push('/(tabs)/account')} style={{ marginTop: 0, marginLeft: 0, flexDirection: 'row', justifyContent: 'space-between' }}>
-                    <MaterialIcons name="arrow-back" size={24} color={Colors.light.text} style={{marginTop: '4%'}}/>
-                    <Text style={[styles.buttonText, {marginTop: '5%', marginHorizontal: '2%'}]}>Back to Account</Text>
+                <TouchableOpacity onPress={() => router.push('/')} style={{ marginTop: 0, marginLeft: 0, flexDirection: 'row', justifyContent: 'space-between' }}>
+                    <MaterialIcons name="arrow-back" size={24} color={Colors.light.text} style={{marginTop: '3%'}}/>
+                    <Text style={[styles.buttonText, {marginTop: '5%', marginHorizontal: '2%'}]}>Back</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={[styles.button]} onPress={() => setModalVisible(true)}>
@@ -143,15 +143,17 @@ export default function ItemsList() {
                 <View style={styles.modalOverlay}>
                     <View style={styles.modalContainer}>
                         <Text style={styles.modalTitle}>Add New Item</Text>
+                        <Text style={styles.label}>Item Name</Text>
                         <TextInput
                             style={styles.modalInput}
-                            placeholder="Item Name"
+                            placeholder="Apples, Oranges, etc."
                             value={newItemName}
                             onChangeText={setNewItemName}
                         />
+                        <Text style={styles.label}>Date Added</Text>
                         <TextInput
                             style={styles.modalInput}
-                            placeholder="Date (YYYY-MM-DD)"
+                            placeholder="YYYY-MM-DD"
                             value={newItemDate}
                             onChangeText={setNewItemDate}
                         />

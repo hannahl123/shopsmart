@@ -146,10 +146,11 @@ export const useStyles = () => {
             borderBottomColor: Colors.light.background, 
         }, 
         searchButton: {
-            fontSize: 18, 
+            fontSize: 35, 
             color: Colors.light.text, 
             textAlign: 'right', 
             paddingHorizontal: '2%',
+            marginTop: '5%',
         }, 
         searchBar: {
             borderWidth: 1, 
@@ -157,10 +158,9 @@ export const useStyles = () => {
             borderRadius: 8, 
             padding: '2.5%', 
             paddingLeft: '4%', 
-            height: '6%', 
-            marginVertical: '10%', 
             flexDirection: 'row', 
             justifyContent: 'space-between', 
+            marginLeft: '10%',
 
         }, 
         searchInput: {
@@ -195,6 +195,10 @@ export const useStyles = () => {
         modalButtons: {
             flexDirection: 'row',
             justifyContent: 'space-between',
-        },
+        }, 
+        store: {
+            borderWidth: 2, 
+            
+        }
     })
 }

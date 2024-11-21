@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { Text, View, TouchableOpacity, ScrollView, TextInput } from "react-native";
+import { Text, View, TouchableOpacity, ScrollView, TextInput, Modal, Image } from "react-native";
 import { useStyles } from "@/constants/useStyles";
 import { MaterialIcons } from '@expo/vector-icons';
 import { Colors } from '@/constants/Colors';
+import { useExpoRouter } from "expo-router/build/global-state/router-store";
 
 export default function Index() {
   const styles = useStyles();
+  const router = useExpoRouter();
 
   const tableData = [
     {item: 'Pasta', price: '$3.99', store: 'Walmart' },
@@ -36,18 +38,6 @@ export default function Index() {
     >
       <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
         <Text style={[styles.title, {position: 'relative', left: 0}]}>ShopSmart</Text>
-        <TouchableOpacity style={[styles.button]}>
-          <Text style={[styles.buttonText, {marginTop: '5%'}]}>Add Item</Text>
-        </TouchableOpacity>
-      </View>
-
-      <View style={styles.searchBar}>
-        <TextInput
-          style={styles.searchInput}
-          placeholder="Search items..."
-          value={searchQuery}
-          onChangeText={handleSearch}
-        />
         <TouchableOpacity onPress={() => alert("Searching...")}>
           <MaterialIcons 
             name="search"
@@ -56,7 +46,13 @@ export default function Index() {
         </TouchableOpacity>
       </View>
       
-      <Text style={[styles.header, {marginTop: '0%'}]}>SHOPPING LIST</Text>
+      <Text style={[styles.header, {marginTop: '10%', justifyContent: 'center'}]}>SHOPPING LIST</Text>
+      <TouchableOpacity style={{right: '15%', position: 'absolute', marginTop: '30%'}} onPress={() => router.push('/itemsList')}>
+          <MaterialIcons 
+            name="edit"
+            style={[styles.searchButton, {fontSize: 25, marginTop: '30%'}]}
+          />
+      </TouchableOpacity>
       <View style={[styles.container, {padding: 10,
             margin: 10, marginTop: '5%'}]}>
         <View style={styles.headerRow}>
@@ -76,6 +72,15 @@ export default function Index() {
         </ScrollView>
       </View>
       <Text style={[styles.header, {marginTop: '10%'}]}>BEST DEALS AT...</Text>
+      <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+          <TouchableOpacity
+            onPress={() => router.push('/(tabs)/trip')} 
+            style={styles.store}
+          >
+            <Image></Image>
+          </TouchableOpacity>
+      </View>
+
     </View>
   );
 }

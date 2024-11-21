@@ -1,7 +1,10 @@
 import express from "express";
 import { query } from "./db";
+import cors from "cors";
 
 const app = express();
+app.use(cors({ origin: "http://localhost:8081" }));
+
 const PORT = 3000;
 
 app.get("/", (req: express.Request, res: express.Response) => {

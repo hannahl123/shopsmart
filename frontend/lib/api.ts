@@ -1,4 +1,4 @@
-const URI = "localhost:3000";
+const URI = "http://10.20.104.1:3000";
 
 export async function getCompanies() {
     const response = await fetch(`${URI}/api/get-companies`);
@@ -45,6 +45,6 @@ export async function removeItem(userId: number, productId: number) {
 }
 
 export async function getShoppingList(userId: number) {
-    const response = await fetch(`${URI}/api/shopping-list/${userId}`);
+    const response = await fetch(`${URI}/api/shopping-items/${userId}`);
     return response.json();
 }

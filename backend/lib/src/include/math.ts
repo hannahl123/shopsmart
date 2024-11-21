@@ -10,3 +10,11 @@ export function deg(x: number): number {
 export function sq(x: number): number {
     return x * x;
 }
+export function logLastBit(x: number): number {
+    if (x == 0) {return 0;}
+    let ans = 0;
+    while (x%2 == 0) {
+        x /= 2; ans++;
+    }
+    return ans;
+}

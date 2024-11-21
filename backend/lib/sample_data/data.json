@@ -1,18 +1,58 @@
 {
     "companies": [
         {
-            "name": "",
+            "name": "Generic Company",
             "stores": [
                 {
-                    "location": "",
+                    "location": "Generic Store",
                     "products": [
                         {
-                            "name": "",
+                            "name": "A",
                             "price": 1
                         },
                         {
-                            "name": "",
+                            "name": "B",
+                            "price": 2
+                        }
+                    ]
+                },
+                {
+                    "location": "Generic Store 2",
+                    "products": [
+                        {
+                            "name": "A",
+                            "price": 2
+                        },
+                        {
+                            "name": "B",
                             "price": 1
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Another Company",
+            "stores":[
+                {
+                    "location": "Another Store 1",
+                    "products": [
+                        {
+                            "name": "C",
+                            "price": 10
+                        },
+                        {
+                            "name": "D",
+                            "price": 10000
+                        }
+                    ]
+                },
+                {
+                    "location": "Another Store 2",
+                    "products": [
+                        {
+                            "name": "D",
+                            "price": 12
                         }
                     ]
                 }

@@ -53,8 +53,8 @@ export const useStyles = () => {
             borderWidth: 1,
             borderColor: '#56B4D3',
             borderRadius: 8,
-            padding: 10,
             margin: 10,
+            height: '70%'
         },
         headerRow: {
             flexDirection: 'row',
@@ -218,5 +218,11 @@ export const useStyles = () => {
             justifyContent: 'center',
             alignItems: 'center',
         },
+        map: {
+            width: '100%', 
+            height: '50%', 
+            borderRadius: 8,
+            marginVertical: '5%',
+        }
     })
 }

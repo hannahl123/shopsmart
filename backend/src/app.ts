@@ -1,7 +1,10 @@
 import express from "express";
 import { query } from "./db";
+import cors from "cors";
 
 const app = express();
+app.use(cors({ origin: "http://localhost:8081" }));
+
 const PORT = 3000;
 
 app.get("/", (req: express.Request, res: express.Response) => {
@@ -75,7 +78,8 @@ app.get("/api/shopping-items/:userId", async (req, res) => {
     const userId = req.params.userId;
     const items = await query(`
         SELECT
-            name,
+            shopping_items.product_id,
+            name as item,
             MIN(price) as price
         FROM shopping_items
         INNER JOIN company_items

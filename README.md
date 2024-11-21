@@ -7,8 +7,7 @@ optimial path to take based on price and convenience.
 
 ## **Frontend**
 
-This is a mobile app, built with React Native with Expo. We use
-[React Native Paper](https://reactnativepaper.com/) as the UI library.
+This is a mobile app, built with React Native with Expo. 
 
 ## **Backend**
 

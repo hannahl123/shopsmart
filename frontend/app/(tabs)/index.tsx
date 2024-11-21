@@ -9,7 +9,6 @@ import {
     Image,
 } from "react-native";
 import { useStyles } from "@/constants/useStyles";
-import { MaterialIcons } from "@expo/vector-icons";
 import { Colors } from "@/constants/Colors";
 import { MaterialIcons } from "@expo/vector-icons";
 import { useExpoRouter } from "expo-router/build/global-state/router-store";

@@ -1,7 +1,7 @@
 # ShopSmart
 
 A shopping app that finds the best store locations to buy groceries and the
-optimial path to take based on price and convenience.
+optimal path to take based on price and convenience.
 
 # Technology Stack
 
